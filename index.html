@@ -15,51 +15,52 @@
 </head>
 <body>
 
-    <!--Navbar-->
-    <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">
-            <img src="img/y-image.png" width="30" height="30" class="d-inline-block align-top" alt="Logo YourControl">
-            YourControl
-        </a>
-    </nav>
-    <!--container-->
-    <div class="container">
-        <section>
-            <div class="row justify-content-center">
-                <!--cadastro-->
-                <div class="col-6 text-center">                
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Cadastrar
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="marca-f.php">Cadastrar Marca</a>
-                                <a class="dropdown-item" href="modelo-f.php">Cadastrar Modelo</a>
-                                <a class="dropdown-item" href="produto-f.php">Cadastrar Produto</a>
-                            </div>
-                        </div>
-                </div>
-                <!--consulta-->
-                <div class="col-6 text-center">
-                    <div class="col-6 text-center">                
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Consultar
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="marca-consulta.php">Consultar Marca</a>
-                                    <a class="dropdown-item" href="modelo-consulta.php">Consultar Modelo</a>
-                                    <a class="dropdown-item" href="produto-consulta.php">Consultar Produto</a>
-                                </div>
-                            </div>
+
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!--home-->
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <!--cadastrar-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Cadastrar
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="marca-f.php">Cadastrar Marca</a>
+                        <a class="dropdown-item" href="modelo-f.php">Cadastrar Modelo</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="produto-f.php">Cadastrar Produto</a>
                     </div>
-                </div>
-            </div><!--row-->
-        </section>
-    </div><!--container-->
+                </li>
+                <!--consultar-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Consultar
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="marca-consulta.php">Consultar Marca</a>
+                        <a class="dropdown-item" href="modelo-consulta.php">Consultar Modelo</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="produto-consulta.php">Consultar Produto</a>
+                    </div>
+                </li>
+                <!--link of brand-->
+                <a class="navbar-brand" href="#possivelpaginainstitucional">
+                    <img src="img/y-image.png" width="30" height="30" class="d-inline-block align-top" alt="Logo YourControl">
+                    YourControl
+                </a>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!--footer-->
     <footer class="footer">
-        <p>YourControl®</p>
+        <p>2018 - YourControl®</p>
     </footer>
-    
 </body>
 </html>
