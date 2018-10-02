@@ -28,6 +28,7 @@ CREATE TABLE Produtos
     idModelo INT NOT NULL ,
     idProduto INT NOT NULL AUTO_INCREMENT , 
     descricaoProduto VARCHAR(30) NOT NULL ,
+    serialProduto VARCHAR(50) NOT NULL ,
     quantidadeProduto INT(5) NOT NULL ,
     PRIMARY KEY (idProduto) , 
     CONSTRAINT fk_MarcaProduto FOREIGN KEY (idMarca) REFERENCES Marcas (idMarca) ,
@@ -57,10 +58,11 @@ CREATE TABLE Setores
 CREATE TABLE Funcionarios
 ( 
     idFuncao INT NOT NULL ,
-    idModelo INT NOT NULL ,
+    idSetor INT NOT NULL , 
     idFuncionario INT NOT NULL AUTO_INCREMENT , 
-    descricaoFuncionario VARCHAR(40) NOT NULL , 
-    PRIMARY KEY (idFuncionario)
+    nomeFuncionario VARCHAR(40) NOT NULL ,
+    cpfFuncionario VARCHAR(11) NOT NULL ,
+    PRIMARY KEY (idFuncionario) ,
     CONSTRAINT fk_FuncaoFuncionario FOREIGN KEY (idFuncao) REFERENCES Funcoes (idFuncao) ,
-    CONSTRAINT fk_SetorFuncionario FOREIGN KEY (idSetor) REFERENCES Funcoes (idSetor)
+    CONSTRAINT fk_SetorFuncionario FOREIGN KEY (idSetor) REFERENCES Setores (idSetor)
 );
