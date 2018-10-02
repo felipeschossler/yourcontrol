@@ -33,3 +33,34 @@ CREATE TABLE Produtos
     CONSTRAINT fk_MarcaProduto FOREIGN KEY (idMarca) REFERENCES Marcas (idMarca) ,
     CONSTRAINT fk_ModeloProduto FOREIGN KEY (idModelo) REFERENCES Modelos (idModelo) 
 );
+
+/*tabela Funcoes*/
+
+CREATE TABLE Funcoes
+( 
+    idFuncao INT NOT NULL AUTO_INCREMENT , 
+    descricaoFuncao VARCHAR(40) NOT NULL , 
+    PRIMARY KEY (idFuncao)
+);
+
+/*tabela Setores*/
+
+CREATE TABLE Setores
+( 
+    idSetor INT NOT NULL AUTO_INCREMENT , 
+    descricaoSetor VARCHAR(40) NOT NULL , 
+    PRIMARY KEY (idSetor)
+);
+
+/*tabela Funcionarios*/
+
+CREATE TABLE Funcionarios
+( 
+    idFuncao INT NOT NULL ,
+    idModelo INT NOT NULL ,
+    idFuncionario INT NOT NULL AUTO_INCREMENT , 
+    descricaoFuncionario VARCHAR(40) NOT NULL , 
+    PRIMARY KEY (idFuncionario)
+    CONSTRAINT fk_FuncaoFuncionario FOREIGN KEY (idFuncao) REFERENCES Funcoes (idFuncao) ,
+    CONSTRAINT fk_SetorFuncionario FOREIGN KEY (idSetor) REFERENCES Funcoes (idSetor)
+);
