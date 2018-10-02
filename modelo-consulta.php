@@ -2,8 +2,8 @@
     include("modelo-c.php");
     //pega por post o componente codigo do formulario -F.
     @$idModelo 	          = $_POST['idModelo'];
-    @$nomeMarca         = $_POST['nomeMarca'];  //FK
     @$nomeModelo         = $_POST['nomeModelo'];
+    @$nomeMarca         = $_POST['nomeMarca'];  //FK
     
     $grupo = selectTodos();
     //var_dump($grupo);
@@ -22,9 +22,9 @@
     <tbody>
         <?php foreach ($grupo as $Modelos) { ?>
             <tr>
-                <td><?=$Contas["idModelo"]?></td>
-                <td><?=$Contas["idMarca"]?></td>
-                <td><?=$Contas["nomeModelo"]?></td>
+                <td><?=$Modelos["idModelo"]?></td>
+                <td><?=$Modelos["idMarca"]?></td>
+                <td><?=$Modelos["nomeModelo"]?></td>
                 <td>
                     <form nome="alterar" action="modelo-a.php" method="POST">
                         <input type="hidden" name="idModelo" value=<?=$Modelos["idModelo"]?> />

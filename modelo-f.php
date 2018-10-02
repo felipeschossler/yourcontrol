@@ -1,14 +1,14 @@
 <?php 
     //Marca
     include("marca-c.php");
-    $grupo = selectTodos();    
+    $grupoTC = selectTodosMarca();
     
 ?>
 
 <DOCTYPE html>
     <html lang="pt-br">
         <head>
-            <title>Criar Modelo</title>
+            <title>Adicionar Modelo</title>
             <meta charset="utf-8">
         </head>
         
@@ -20,8 +20,11 @@
                         <tr>
                             <td>Código Modelo</td>
                             <td><input type="text" name="idModelo" value="" disabled="true" /></td>
-                        </tr>   
-                       
+                        </tr> 
+                        <tr>
+                            <td>Nome Modelo</td>
+                            <td><input type="text" name="nomeModelo" value="" disabled="true" /></td>
+                        </tr>
                         <tr>
                             <td>Marca</td>
                             <td>
@@ -32,10 +35,6 @@
                                     ?>
                                 </select> 
                             </td>
-                        </tr>
-                        <tr>
-                            <td>Nome Modelo</td>
-                            <td><input type="text" name="nomeModelo" value="" /></td>
                         </tr>
                         <tr>
                             <td><input type="submit" name="acao" value="Enviar" /></td>
