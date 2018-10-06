@@ -19,8 +19,8 @@
                     <td><input type="text" name="idModelo" value="" disabled="true" /></td>
                 </tr> 
                 <tr>
-                    <td>Nome Modelo</td>
-                    <td><input type="text" name="nomeModelo" value="" disabled="true" /></td>
+                    <td>Nome:</td>
+                    <td><input type="text" name="nomeModelo" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
                 </tr>
                 <tr>
                     <td>Marca</td>
