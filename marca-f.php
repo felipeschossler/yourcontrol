@@ -1,6 +1,6 @@
 <html lang="pt-br">
     <head>
-        <title>Cadastrar Marca</title>
+        <title>Cadastrar - Marca</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" media="screen" href="./css/mystyle.css" />
     </head>

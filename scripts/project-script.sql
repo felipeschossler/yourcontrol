@@ -1,13 +1,13 @@
 /*cria o banco de dados*/
 
-CREATE DATABASE dbyourcontrol CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE banco CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 /*tabela Marcas*/
 
 CREATE TABLE Marcas 
 ( 
     idMarca INT NOT NULL AUTO_INCREMENT , 
-    descricaoMarca VARCHAR(40) NOT NULL ,
+    nomeMarca VARCHAR(40) NOT NULL ,
     PRIMARY KEY (idMarca)
 ); 
 
@@ -17,7 +17,7 @@ CREATE TABLE Modelos
 ( 
     idMarca INT NOT NULL ,
     idModelo INT NOT NULL AUTO_INCREMENT , 
-    descricaoModelo VARCHAR(40) NOT NULL , 
+    nomeModelo VARCHAR(40) NOT NULL , 
     PRIMARY KEY (idModelo) ,
     CONSTRAINT fk_MarcaProduto FOREIGN KEY (idMarca) REFERENCES Marcas (idMarca) 
 );
@@ -28,7 +28,7 @@ CREATE TABLE Produtos
 ( 
     idModelo INT NOT NULL ,
     idProduto INT NOT NULL AUTO_INCREMENT , 
-    descricaoProduto VARCHAR(30) NOT NULL ,
+    nomeProduto VARCHAR(30) NOT NULL ,
     serialProduto VARCHAR(50) NOT NULL ,
     quantidadeProduto INT(5) NOT NULL ,
     PRIMARY KEY (idProduto) , 
@@ -40,7 +40,7 @@ CREATE TABLE Produtos
 CREATE TABLE Funcoes
 ( 
     idFuncao INT NOT NULL AUTO_INCREMENT , 
-    descricaoFuncao VARCHAR(40) NOT NULL , 
+    nomeFuncao VARCHAR(40) NOT NULL , 
     PRIMARY KEY (idFuncao)
 );
 
@@ -49,7 +49,7 @@ CREATE TABLE Funcoes
 CREATE TABLE Setores
 ( 
     idSetor INT NOT NULL AUTO_INCREMENT , 
-    descricaoSetor VARCHAR(40) NOT NULL , 
+    nomeSetor VARCHAR(40) NOT NULL , 
     PRIMARY KEY (idSetor)
 );
 

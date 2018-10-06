@@ -1,10 +1,10 @@
-<?php include("Marca-c.php");
+<?php include("marca-c.php");
     $grupo = selectTodos();
     //var_dump($grupo);
 ?>
 <html lang="pt-br">
 <head>
-    <title>Consulta Marca</title>
+    <title>Consulta - Marca</title>
     <meta charset="utf-8">
 </head>
 <body>
@@ -24,7 +24,7 @@
                     <td><?=$Marcas["nomeMarca"]?></td>
                     <td>
                         <form nome="alterar" action="marca-a.php" method="POST">
-                            <input type="hidden" name="idMarca" value=<?=$Agencias["idMarca"]?> />
+                            <input type="hidden" name="idMarca" value=<?=$Marcas["idMarca"]?> />
                             <input type="submit" name="Editar" value="Editar" />
                         </form>
                     </td>
