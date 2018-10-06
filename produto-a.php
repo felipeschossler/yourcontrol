@@ -5,7 +5,7 @@
     //Modelo
     include("modelo-c.php");
     $Modelos = selectIdModelo($_POST["idModelo"]);
-
+    $grupo = selectTodos();
 ?>
 <html lang="pt-br">
 <head>
@@ -22,6 +22,17 @@
                     <td><input type="text" name="idProduto" value="<?=$Produtos["idProduto"]?>" size="20" disabled="true" /></td>
                 </tr>   
                 <tr>
+                <td>Modelo</td>
+                    <td>
+                        <select name="idModelo">
+                            <?php
+                                foreach ($grupo as $Modelos)
+                                echo '<option name=" '.$Modelos['idModelo'].' " value=" ' . $Modelos['idModelo'] . '"> ' . $Modelos['nomeModelo'] . ' </option>';
+                            ?>
+                        </select> 
+                    </td>
+                </tr>
+                <tr>
                     <td>Nome Produto</td>
                     <td><input type="text" name="nomeProduto" value="<?=$Produtos["nomeProduto"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
                 </tr>
@@ -30,8 +41,8 @@
                     <td><input type="text" name="serialProduto" value="<?=$Produtos["serialProduto"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
                 </tr>
                 <tr>
-                    <td>Modelo</td>
-                    <td><input type="text" name="idModelo" value="<?=$Modelos["idModelo"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                    <td>Quantidade Produto</td>
+                    <td><input type="text" name="quantidadeProduto" value="<?=$Produtos["quantidadeProduto"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
                 </tr>
                 <tr>
                     <td>
@@ -43,5 +54,7 @@
             </tbody>
         </table>
     </form>
+    <a href="produto-consulta.php">Voltar</a>
+    </body>
 </body>
 </html>
