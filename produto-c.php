@@ -22,7 +22,7 @@
 
     //funcao que redireciona para a página inicial
     function goConsulta(){
-        header("location:produto-consulta.php");
+        header("location:index.php");
     }
 
     //funcao que insere produto
@@ -64,7 +64,7 @@
             ?>
                 <script type="text/javascript">
                 alert("Nenhum produto está cadastrado.");
-                window.location.href = "index.html";
+                window.location.href = "index.php";
                 </script>
             <?php
         }else{
