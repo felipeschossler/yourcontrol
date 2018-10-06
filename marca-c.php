@@ -21,7 +21,7 @@
     }
     //funcao que redireciona para a página inicial
     function voltarIndex(){
-        header("location:index.html");
+        header("location:index.php");
     }
     //funcao que insere marca
     function inserirMarca(){
@@ -49,7 +49,7 @@
             ?>
                 <script type="text/javascript">
                 alert("Nenhuma marca foi cadastrada.");
-                window.location.href = "index.html";
+                window.location.href = "index.php";
                 </script>
             <?php
         }
