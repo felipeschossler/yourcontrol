@@ -22,7 +22,7 @@
 
     //funcao que redireciona para a página inicial
     function voltarIndex(){
-        header("location:index.html");
+        header("location:index.php");
     }
     
     //funcao que insere modelo
@@ -53,7 +53,7 @@
             ?>
                 <script type="text/javascript">
                 alert("Nenhum modelo foi cadastrado.");
-                window.location.href = "index.html";
+                window.location.href = "index.php";
                 </script>
             <?php
         }
