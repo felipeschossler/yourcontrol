@@ -22,8 +22,11 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="marca-f.php">Cadastrar Marca</a>
                         <a class="dropdown-item" href="modelo-f.php">Cadastrar Modelo</a>
-                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="produto-f.php">Cadastrar Produto</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="funcao-f.php">Cadastrar Função</a>
+                        <a class="dropdown-item" href="setor-f.php">Cadastrar Setor</a>
+                        <a class="dropdown-item" href="funcionario-f.php">Cadastrar Funcionário</a>
                     </div>
                 </li>
                 <!--consultar-->
@@ -34,8 +37,11 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="marca-consulta.php">Consultar Marca</a>
                         <a class="dropdown-item" href="modelo-consulta.php">Consultar Modelo</a>
-                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="produto-consulta.php">Consultar Produto</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="funcao-consulta.php">Consultar Função</a>
+                        <a class="dropdown-item" href="setor-consulta.php">Consultar Setor</a>
+                        <a class="dropdown-item" href="funcionario-consulta.php">Consultar Funcionário</a>
                     </div>
                 </li>
             </ul>
