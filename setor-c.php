@@ -15,17 +15,17 @@
     }
     
     //funcao que passa o local e as credenciais para logar no banco
-    function abrirBanco(){
+    function abrirBancoSetor(){
         $conexao = new mysqli("localhost","root","","banco");
         return $conexao;
     }
     //funcao que redireciona para a página inicial
-    function voltarIndex(){
-        header("location:index.php");
+    function gotoConsultaSetor(){
+        header("location:setor-consulta.php");
     }
     //funcao que insere setor
     function inserirSetor(){
-        $banco = abrirBanco();
+        $banco = abrirBancoSetor();
         //declarando as variáveis usadas na inserção dos dados
         $nomeSetor = $_POST["nomeSetor"];
         //a consulta sql
@@ -35,11 +35,11 @@
         $banco->query($sql);
         //fechando a conexao com o banco
         $banco->close();
-        voltarIndex();
+        gotoConsultaSetor();
     }
-    function selectTodos(){
+    function selectTodosSetores(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoSetor();
         //a consulta sql
         $sql = "SELECT * FROM Setores ORDER BY nomeSetor";
         //executando a consulta
@@ -66,7 +66,7 @@
     //funcao que mostra os setores já preenchido para a alteração
     function selectIdSetor($idSetor){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoSetor();
         //a consulta sql
         $sql = "SELECT * FROM Setores WHERE idSetor ='$idSetor'";
         $resultado = $banco->query($sql);
@@ -78,7 +78,7 @@
     //funcao que altera um único setor especifico
     function alterarSetor(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoSetor();
         
         //declarando as variáveis usadas no update
         $idSetor = $_POST["idSetor"];
@@ -87,17 +87,17 @@
         $sql = "UPDATE Setores SET nomeSetor='$nomeSetor' WHERE idSetor='$idSetor'";
         $banco->query($sql);
         $banco->close();
-        voltarIndex();
+        gotoConsultaSetor();
     }
     function excluirSetor(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoSetor();
         //variável id que vai ser usada na consulta
         $idSetor = $_POST["idSetor"]; 
         //delete da funcao específica 
         $sql = "DELETE FROM Setores WHERE idSetor='$idSetor'";
         $banco->query($sql);
         $banco->close();
-        voltarIndex();
+        gotoConsultaSetor();
     }
 ?>

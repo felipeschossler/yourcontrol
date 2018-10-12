@@ -1,11 +1,15 @@
 <?php 
-    //Modelo
-    include("funcionario-c.php");
-    $grupo = selectTodos();
+    //Funcao
+    include("funcao-c.php");
+    $grupoF = selectTodasFuncoes();
+
+    //Setor
+    include("setor-c.php");
+    $grupoS = selectTodosSetores();
 ?>
 <html lang="pt-BR">
     <head>
-        <title>Cadastrar - Funcionario</title>
+        <title>Cadastrar - Funcionário</title>
         <?php
             include("tmpl/head.php");
         ?>
@@ -21,11 +25,12 @@
         <!--form-->
         <div class="container h-100">
             <div class="row h-100 justify-content-center align-items-center">
-                <form name="Produtos" action="funcionario-c.php" method="POST">
+                <form name="Funcionario" action="funcionario-c.php" method="POST">
+                    <h3>Cadastrar Funcionário</h3>
                     <table border="1">
                         <tbody>
                             <tr>
-                                <td>Código Funcionario</td>
+                                <td>Código Funcionário</td>
                                 <td><input type="text" name="idFuncionario" value="" disabled="true" /></td>
                             </tr> 
                             <tr>
@@ -33,7 +38,7 @@
                                 <td>
                                     <select name="idSetor">
                                         <?php
-                                            foreach ($grupo as $setores)
+                                            foreach ($grupoS as $setores)
                                             echo '<option name=" '.$setores['idSetor'].' " value=" ' . $setores['idSetor'] . '"> ' . $setores['nomeSetor'] . ' </option>';
                                         ?>
                                     </select> 
@@ -44,7 +49,7 @@
                                 <td>
                                     <select name="idFuncao">
                                         <?php
-                                            foreach ($grupo as $funcoes)
+                                            foreach ($grupoF as $funcoes)
                                             echo '<option name=" '.$funcoes['idFuncao'].' " value=" ' . $funcoes['idFuncao'] . '"> ' . $funcoes['nomeFuncao'] . ' </option>';
                                         ?>
                                     </select> 
