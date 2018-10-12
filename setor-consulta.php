@@ -21,8 +21,8 @@
     <!--table-->
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
-        <h3>Consulta de Setor</h3>
             <table border="1">
+            <h3>Consulta de Setor</h3>
                 <thead>
                     <tr>
                         <th>Código:</th>

@@ -7,7 +7,7 @@
     @$idFuncao          = $_POST['idFuncao'];  //FK
     @$cpfFuncionario    = $_POST['cpfFuncionario'];
     
-    $grupo = selectTodosFuncionarios();
+    $grupoF = selectTodosFuncionarios();
     //var_dump($grupo);
 ?>
 <html lang="pt-BR">
@@ -41,13 +41,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($grupo as $Funcionarios) { ?>
+                        <?php foreach ($grupoF as $funcionarios) { ?>
                             <tr>
-                                <td><?=$Funcionarios["idFuncionario"]?></td>
-                                <td><?=$Funcionarios["idSetor"]?></td>
-                                <td><?=$Funcionarios["idFuncao"]?></td>
-                                <td><?=$Funcionarios["nomeFuncionario"]?></td>
-                                <td><?=$Funcionarios["cpfFuncionario"]?></td>
+                                <td><?=$funcionarios["idFuncionario"]?></td>
+                                <td><?=$funcionarios["idSetor"]?></td>
+                                <td><?=$funcionarios["idFuncao"]?></td>
+                                <td><?=$funcionarios["nomeFuncionario"]?></td>
+                                <td><?=$funcionarios["cpfFuncionario"]?></td>
                                 <td>
                                     <form nome="alterar" action="funcionario-a.php" method="POST">
                                         <input type="hidden" name="idFuncionario" value=<?=$funcionarios["idFuncionario"]?> />
