@@ -1,6 +1,6 @@
 <?php 
     //Modelo
-    include("modelo-c.php");
+    include("funcionario-c.php");
     $grupo = selectTodos();
 ?>
 <html lang="pt-BR">
@@ -21,7 +21,7 @@
         <!--form-->
         <div class="container h-100">
             <div class="row h-100 justify-content-center align-items-center">
-                <form name="Produtos" action="produto-c.php" method="POST">
+                <form name="Produtos" action="funcionario-c.php" method="POST">
                     <table border="1">
                         <tbody>
                             <tr>
