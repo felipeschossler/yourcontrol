@@ -1,6 +1,6 @@
 <?php 
     include("setor-c.php");
-    $grupo = selectTodos();
+    $grupoS = selectTodosSetores();
     //var_dump($grupo);
 ?>
 <html lang="pt-BR">
@@ -21,6 +21,7 @@
     <!--table-->
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
+        <h3>Consulta de Setor</h3>
             <table border="1">
                 <thead>
                     <tr>
@@ -31,7 +32,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($grupo as $setores) { ?>
+                    <?php foreach ($grupoS as $setores) { ?>
                         <tr>
                             <td><?=$setores["idSetor"]?></td>
                             <td><?=$setores["nomeSetor"]?></td>

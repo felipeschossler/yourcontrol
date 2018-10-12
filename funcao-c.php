@@ -15,17 +15,17 @@
     }
     
     //funcao que passa o local e as credenciais para logar no banco
-    function abrirBanco(){
+    function abrirBancoFuncao(){
         $conexao = new mysqli("localhost","root","","banco");
         return $conexao;
     }
     //funcao que redireciona para a página inicial
-    function voltarIndex(){
-        header("location:index.php");
+    function gotoConsultaFuncao(){
+        header("location:funcao-consulta.php");
     }
     //funcao que insere funcao
     function inserirFuncao(){
-        $banco = abrirBanco();
+        $banco = abrirBancoFuncao();
         //declarando as variáveis usadas na inserção dos dados
         $nomeFuncao = $_POST["nomeFuncao"];
         //a consulta sql
@@ -35,11 +35,11 @@
         $banco->query($sql);
         //fechando a conexao com o banco
         $banco->close();
-        voltarIndex();
+        gotoConsultaFuncao();
     }
-    function selectTodos(){
+    function selectTodasFuncoes(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoFuncao();
         //a consulta sql
         $sql = "SELECT * FROM Funcoes ORDER BY nomeFuncao";
         //executando a consulta
@@ -66,7 +66,7 @@
     //funcao que mostra as funcoes já preenchido para a alteração
     function selectIdFuncao($idFuncao){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoFuncao();
         //a consulta sql
         $sql = "SELECT * FROM Funcoes WHERE idFuncao ='$idFuncao'";
         $resultado = $banco->query($sql);
@@ -78,7 +78,7 @@
     //funcao que altera uma única marca especifica
     function alterarFuncao(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoFuncao();
         
         //declarando as variáveis usadas no update
         $idFuncao = $_POST["idFuncao"];
@@ -87,17 +87,17 @@
         $sql = "UPDATE Funcoes SET nomeFuncao='$nomeFuncao' WHERE idFuncao='$idFuncao'";
         $banco->query($sql);
         $banco->close();
-        voltarIndex();
+        gotoConsultaFuncao();
     }
     function excluirFuncao(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoFuncao();
         //variável id que vai ser usada na consulta
         $idFuncao = $_POST["idFuncao"]; 
         //delete da funcao específica 
         $sql = "DELETE FROM Funcoes WHERE idFuncao='$idFuncao'";
         $banco->query($sql);
         $banco->close();
-        voltarIndex();
+        gotoConsultaFuncao();
     }
 ?>

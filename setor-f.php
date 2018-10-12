@@ -17,6 +17,7 @@
             <div class="row h-100 justify-content-center align-items-center">
                 <!--form-->
                 <form name="dadosSetor" action="setor-c.php" method="POST">
+                    <h3>Cadastro de Setor</h3>
                     <table class="" border="1">
                         <tbody>
                             <tr>

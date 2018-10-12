@@ -1,6 +1,6 @@
 <?php 
     include("funcao-c.php");
-    $grupo = selectTodos();
+    $grupoF = selectTodasFuncoes();
     //var_dump($grupo);
 ?>
 <html lang="pt-BR">
@@ -21,6 +21,7 @@
     <!--table-->
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
+        <h3>Consulta de Função</h3>
             <table border="1">
                 <thead>
                     <tr>
@@ -31,7 +32,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($grupo as $funcoes) { ?>
+                    <?php foreach ($grupoF as $funcoes) { ?>
                         <tr>
                             <td><?=$funcoes["idFuncao"]?></td>
                             <td><?=$funcoes["nomeFuncao"]?></td>
