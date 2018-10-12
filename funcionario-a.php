@@ -1,5 +1,5 @@
 <?php 
-    include("funcionarios-c.php"); 
+    include("funcionario-c.php"); 
     $funcionarios = selectIdFuncionario($_POST["idFuncionario"]);
 
     //Funcao

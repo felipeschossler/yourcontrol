@@ -1,13 +1,13 @@
 <?php 
-    include("produto-c.php");
+    include("funcionario-c.php");
     //pega por post o componente codigo do formulario -F.
-    @$idProduto         = $_POST['idProduto'];
-    @$nomeProduto       = $_POST['nomeProduto'];
-    @$idModelo          = $_POST['idModelo'];  //FK
-    @$serialProduto     = $_POST['serialProduto'];
-    @$quantidadeProduto = $_POST['quantidadeProduto'];
+    @$idFuncionario     = $_POST['idFuncionario'];
+    @$nomeFuncionario   = $_POST['nomeFuncionario'];
+    @$idSetor           = $_POST['idSetor'];  //FK
+    @$idFuncao          = $_POST['idFuncao'];  //FK
+    @$cpfFuncionario    = $_POST['cpfFuncionario'];
     
-    $grupo = selectTodosProdutos();
+    $grupo = selectTodosFuncionarios();
     //var_dump($grupo);
 ?>
 <html lang="pt-BR">
@@ -48,13 +48,13 @@
                                 <td><?=$Funcionarios["nomeFuncionario"]?></td>
                                 <td><?=$Funcionarios["cpfFuncionario"]?></td>
                                 <td>
-                                    <form nome="alterar" action="funcionarios-a.php" method="POST">
+                                    <form nome="alterar" action="funcionario-a.php" method="POST">
                                         <input type="hidden" name="idFuncionario" value=<?=$funcionarios["idFuncionario"]?> />
                                         <input type="submit" name="Editar" value="Editar" />
                                     </form>
                                 </td>
                                 <td>
-                                    <form name="excluir" action="funcionarios-c.php" method="POST">
+                                    <form name="excluir" action="funcionario-c.php" method="POST">
                                         <input type="hidden" name="idFuncionario" value=<?=$funcionarios["idFuncionario"]?> />
                                         <input type="submit" name="acao" value="Excluir" onclick="alert('Cadastro excluído com sucesso.');"/>
                                     </form>
