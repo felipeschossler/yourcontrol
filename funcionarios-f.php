@@ -1,0 +1,70 @@
+<?php 
+    //Modelo
+    include("modelo-c.php");
+    $grupo = selectTodos();
+?>
+<html lang="pt-BR">
+    <head>
+        <title>Cadastrar - Funcionario</title>
+        <?php
+            include("tmpl/head.php");
+        ?>
+    </head>
+    <body>
+
+        <!--includes-->
+        <?php 
+            include("tmpl/header.php");
+            include("tmpl/footer.php");
+        ?> 
+
+        <!--form-->
+        <div class="container h-100">
+            <div class="row h-100 justify-content-center align-items-center">
+                <form name="Produtos" action="produto-c.php" method="POST">
+                    <table border="1">
+                        <tbody>
+                            <tr>
+                                <td>Código Funcionario</td>
+                                <td><input type="text" name="idFuncionario" value="" disabled="true" /></td>
+                            </tr> 
+                            <tr>
+                                <td>Setor</td>
+                                <td>
+                                    <select name="idSetor">
+                                        <?php
+                                            foreach ($grupo as $setores)
+                                            echo '<option name=" '.$setores['idSetor'].' " value=" ' . $setores['idSetor'] . '"> ' . $setores['nomeSetor'] . ' </option>';
+                                        ?>
+                                    </select> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Função</td>
+                                <td>
+                                    <select name="idFuncao">
+                                        <?php
+                                            foreach ($grupo as $funcoes)
+                                            echo '<option name=" '.$funcoes['idFuncao'].' " value=" ' . $funcoes['idFuncao'] . '"> ' . $funcoes['nomeFuncao'] . ' </option>';
+                                        ?>
+                                    </select> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Nome Funcionario:</td>
+                                <td><input type="text" name="nomeFuncionario" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            </tr>
+                            <tr>
+                                <td>CPF:</td>
+                                <td><input type="text" name="cpfFuncionario" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            </tr>
+                            <tr>
+                                <td><input type="submit" name="acao" value="Enviar" onclick="alert('Cadastro efetuado com sucesso.');"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
