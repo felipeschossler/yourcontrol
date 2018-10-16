@@ -21,37 +21,39 @@
     <!--table-->
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
-            <table border="1">
-            <h3>Consulta de Setor</h3>
-                <thead>
-                    <tr>
-                        <th>Código:</th>
-                        <th>Nome</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($grupoS as $setores) { ?>
+            <form name="#" action="#" method="#">
+                <table class="table">
+                <h3>Consultar - Setor</h3>
+                    <thead class="thead-dark">
                         <tr>
-                            <td><?=$setores["idSetor"]?></td>
-                            <td><?=$setores["nomeSetor"]?></td>
-                            <td>
-                                <form nome="alterar" action="setor-a.php" method="POST">
-                                    <input type="hidden" name="idSetor" value=<?=$setores["idSetor"]?> />
-                                    <input type="submit" name="Editar" value="Editar" />
-                                </form>
-                            </td>
-                            <td>
-                                <form name="excluir" action="setor-c.php" method="POST">
-                                    <input type="hidden" name="idSetor" value=<?=$setores["idSetor"]?> />
-                                    <input type="submit" name="acao" value="Excluir" onclick="alert('Cadastro excluído com sucesso.');"/>
-                                </form>    
-                            </td>
-                        </tr>   
-                    <?php } ?>
-                </tbody>
-            </table>
+                            <th>Código:</th>
+                            <th>Nome</th>
+                            <th>Editar</th>
+                            <th>Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($grupoS as $setores) { ?>
+                            <tr>
+                                <td><?=$setores["idSetor"]?></td>
+                                <td><?=$setores["nomeSetor"]?></td>
+                                <td>
+                                    <form nome="alterar" action="setor-a.php" method="POST">
+                                        <input type="hidden" name="idSetor" value=<?=$setores["idSetor"]?> />
+                                        <input type="submit" name="Editar" value="Editar" />
+                                    </form>
+                                </td>
+                                <td>
+                                    <form name="excluir" action="setor-c.php" method="POST">
+                                        <input type="hidden" name="idSetor" value=<?=$setores["idSetor"]?> />
+                                        <input type="submit" name="acao" value="Excluir" onclick="alert('Cadastro excluído com sucesso.');"/>
+                                    </form>    
+                                </td>
+                            </tr>   
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </form>
         </div>
     </div>
 

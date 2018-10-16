@@ -21,37 +21,39 @@
     <!--table-->
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
-        <h3>Consultar - Marca</h3>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Código:</th>
-                        <th>Nome</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($grupo as $Marcas) { ?>
+            <form name="#" action="#" method="#">
+                <h3>Consultar - Marca</h3>
+                <table class="table">
+                    <thead class="thead-dark">
                         <tr>
-                            <td><?=$Marcas["idMarca"]?></td>
-                            <td><?=$Marcas["nomeMarca"]?></td>
-                            <td>
-                                <form nome="alterar" action="marca-a.php" method="POST">
-                                    <input type="hidden" name="idMarca" value=<?=$Marcas["idMarca"]?> />
-                                    <input type="submit" name="Editar" value="Editar" />
-                                </form>
-                            </td>
-                            <td>
-                                <form name="excluir" action="marca-c.php" method="POST">
-                                    <input type="hidden" name="idMarca" value=<?=$Marcas["idMarca"]?> />
-                                    <input type="submit" name="acao" value="Excluir" onclick="alert('Cadastro excluído com sucesso.');"/>
-                                </form>    
-                            </td>
-                        </tr>   
-                    <?php } ?>
-                </tbody>
-            </table>
+                            <th>Código:</th>
+                            <th>Nome</th>
+                            <th>Editar</th>
+                            <th>Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($grupo as $Marcas) { ?>
+                            <tr>
+                                <td><?=$Marcas["idMarca"]?></td>
+                                <td><?=$Marcas["nomeMarca"]?></td>
+                                <td>
+                                    <form nome="alterar" action="marca-a.php" method="POST">
+                                        <input type="hidden" name="idMarca" value=<?=$Marcas["idMarca"]?> />
+                                        <input type="submit" name="Editar" value="Editar" />
+                                    </form>
+                                </td>
+                                <td>
+                                    <form name="excluir" action="marca-c.php" method="POST">
+                                        <input type="hidden" name="idMarca" value=<?=$Marcas["idMarca"]?> />
+                                        <input type="submit" name="acao" value="Excluir" onclick="alert('Cadastro excluído com sucesso.');"/>
+                                    </form>    
+                                </td>
+                            </tr>   
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </form>
         </div>
     </div>
 

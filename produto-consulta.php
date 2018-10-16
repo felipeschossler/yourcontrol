@@ -27,43 +27,45 @@
     <!--table-->
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
-        <h3>Consulta de Produto</h3>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>ID Produto</th>
-                        <th>ID Modelo</th>
-                        <th>Nome Produto</th>
-                        <th>Serial Produto</th>
-                        <th>Quantidade Produto</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($grupo as $Produtos) { ?>
+            <form name="#" action="#" method="#">
+                <h3>Consultar - Produto</h3>
+                <table class="table">
+                    <thead class="thead-dark">
                         <tr>
-                            <td><?=$Produtos["idProduto"]?></td>
-                            <td><?=$Produtos["idModelo"]?></td>
-                            <td><?=$Produtos["nomeProduto"]?></td>
-                            <td><?=$Produtos["serialProduto"]?></td>
-                            <td><?=$Produtos["quantidadeProduto"]?></td>
-                            <td>
-                                <form nome="alterar" action="produto-a.php" method="POST">
-                                    <input type="hidden" name="idProduto" value=<?=$Produtos["idProduto"]?> />
-                                    <input type="submit" name="Editar" value="Editar" />
-                                </form>
-                            </td>
-                            <td>
-                                <form name="excluir" action="produto-c.php" method="POST">
-                                    <input type="hidden" name="idProduto" value=<?=$Produtos["idProduto"]?> />
-                                    <input type="submit" name="acao" value="Excluir" onclick="alert('Cadastro excluído com sucesso.');"/>
-                                </form>
-                            </td>
-                        </tr> 
-                    <?php } ?>
-                </tbody>
-            </table>
+                            <th>ID Produto</th>
+                            <th>ID Modelo</th>
+                            <th>Nome Produto</th>
+                            <th>Serial Produto</th>
+                            <th>Quantidade Produto</th>
+                            <th>Editar</th>
+                            <th>Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($grupo as $Produtos) { ?>
+                            <tr>
+                                <td><?=$Produtos["idProduto"]?></td>
+                                <td><?=$Produtos["idModelo"]?></td>
+                                <td><?=$Produtos["nomeProduto"]?></td>
+                                <td><?=$Produtos["serialProduto"]?></td>
+                                <td><?=$Produtos["quantidadeProduto"]?></td>
+                                <td>
+                                    <form nome="alterar" action="produto-a.php" method="POST">
+                                        <input type="hidden" name="idProduto" value=<?=$Produtos["idProduto"]?> />
+                                        <input type="submit" name="Editar" value="Editar" />
+                                    </form>
+                                </td>
+                                <td>
+                                    <form name="excluir" action="produto-c.php" method="POST">
+                                        <input type="hidden" name="idProduto" value=<?=$Produtos["idProduto"]?> />
+                                        <input type="submit" name="acao" value="Excluir" onclick="alert('Cadastro excluído com sucesso.');"/>
+                                    </form>
+                                </td>
+                            </tr> 
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </form>
         </div>
     </div>
 

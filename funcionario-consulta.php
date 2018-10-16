@@ -27,43 +27,45 @@
         <!--table-->
         <div class="container h-100">
             <div class="row h-100 justify-content-center align-items-center">
-                <h3>Consulta de Funcionário</h3>
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>ID Funcionario</th>
-                            <th>ID Setor</th>
-                            <th>ID Funcao</th>
-                            <th>Nome Funcionario</th>
-                            <th>CPF Funcionario</th>
-                            <th>Editar</th>
-                            <th>Excluir</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($grupoF as $funcionarios) { ?>
+                <form name="#" action="#" method="#">
+                    <h3>Consulta de Funcionário</h3>
+                    <table class="table">
+                        <thead class="thead-dark">
                             <tr>
-                                <td><?=$funcionarios["idFuncionario"]?></td>
-                                <td><?=$funcionarios["idSetor"]?></td>
-                                <td><?=$funcionarios["idFuncao"]?></td>
-                                <td><?=$funcionarios["nomeFuncionario"]?></td>
-                                <td><?=$funcionarios["cpfFuncionario"]?></td>
-                                <td>
-                                    <form nome="alterar" action="funcionario-a.php" method="POST">
-                                        <input type="hidden" name="idFuncionario" value=<?=$funcionarios["idFuncionario"]?> />
-                                        <input type="submit" name="Editar" value="Editar" />
-                                    </form>
-                                </td>
-                                <td>
-                                    <form name="excluir" action="funcionario-c.php" method="POST">
-                                        <input type="hidden" name="idFuncionario" value=<?=$funcionarios["idFuncionario"]?> />
-                                        <input type="submit" name="acao" value="Excluir" onclick="alert('Cadastro excluído com sucesso.');"/>
-                                    </form>
-                                </td>
-                            </tr> 
-                        <?php } ?>
-                    </tbody>
-                </table>
+                                <th>ID Funcionario</th>
+                                <th>ID Setor</th>
+                                <th>ID Funcao</th>
+                                <th>Nome Funcionario</th>
+                                <th>CPF Funcionario</th>
+                                <th>Editar</th>
+                                <th>Excluir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($grupoF as $funcionarios) { ?>
+                                <tr>
+                                    <td><?=$funcionarios["idFuncionario"]?></td>
+                                    <td><?=$funcionarios["idSetor"]?></td>
+                                    <td><?=$funcionarios["idFuncao"]?></td>
+                                    <td><?=$funcionarios["nomeFuncionario"]?></td>
+                                    <td><?=$funcionarios["cpfFuncionario"]?></td>
+                                    <td>
+                                        <form nome="alterar" action="funcionario-a.php" method="POST">
+                                            <input type="hidden" name="idFuncionario" value=<?=$funcionarios["idFuncionario"]?> />
+                                            <input type="submit" name="Editar" value="Editar" />
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form name="excluir" action="funcionario-c.php" method="POST">
+                                            <input type="hidden" name="idFuncionario" value=<?=$funcionarios["idFuncionario"]?> />
+                                            <input type="submit" name="acao" value="Excluir" onclick="alert('Cadastro excluído com sucesso.');"/>
+                                        </form>
+                                    </td>
+                                </tr> 
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </form>
             </div>
         </div>
 
