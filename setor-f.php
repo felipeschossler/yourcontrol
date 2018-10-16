@@ -19,7 +19,7 @@
                 <!--form-->
                 <form name="dadosSetor" action="setor-c.php" method="POST">
                     <h3>Cadastro de Setor</h3>
-                    <table class="" border="1">
+                    <table class="table">
                         <tbody>
                             <tr>
                                 <td>Código Setor:</td>

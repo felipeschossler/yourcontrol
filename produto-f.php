@@ -23,7 +23,7 @@
         <div class="row h-100 justify-content-center align-items-center">
             <form name="Produtos" action="produto-c.php" method="POST">
                 <h3>Cadastro de Produto</h3>
-                <table border="1">
+                <table class="table">
                     <tbody>
                         <tr>
                             <td>Código Produto</td>

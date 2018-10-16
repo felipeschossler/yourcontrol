@@ -19,7 +19,7 @@
                 <!--form-->
                 <form name="dadosFuncao" action="funcao-c.php" method="POST">
                     <h3>Cadastro - Função</h3>
-                    <table class="" border="1">
+                    <table class="table">
                         <tbody>
                             <tr>
                                 <td>Código Função:</td>

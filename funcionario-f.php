@@ -27,7 +27,7 @@
             <div class="row h-100 justify-content-center align-items-center">
                 <form name="Funcionario" action="funcionario-c.php" method="POST">
                     <h3>Cadastro - Funcionário</h3>
-                    <table border="1">
+                    <table class="table">
                         <tbody>
                             <tr>
                                 <td>Código Funcionário</td>

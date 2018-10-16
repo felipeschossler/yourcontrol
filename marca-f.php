@@ -19,7 +19,7 @@
                 <!--form-->
                 <form name="dadosMarca" action="marca-c.php" method="POST">
                 <h3>Cadastrar - Marca</h3>
-                    <table class="" border="1">
+                    <table class="table">
                         <tbody>
                             <tr>
                                 <td>Código Marca:</td>
