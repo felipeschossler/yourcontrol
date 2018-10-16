@@ -21,9 +21,9 @@
     }
     //funcao que redireciona para a página inicial
     function voltarIndex(){
-        header("location:index.html");
+        header("location:index.php");
     }
-    //funcao que insere agencia
+    //funcao que insere marca
     function inserirMarca(){
         $banco = abrirBanco();
         //declarando as variáveis usadas na inserção dos dados
@@ -49,7 +49,7 @@
             ?>
                 <script type="text/javascript">
                 alert("Nenhuma marca foi cadastrada.");
-                window.location.href = "index.html";
+                window.location.href = "index.php";
                 </script>
             <?php
         }
@@ -63,19 +63,19 @@
             return $grupo;
         }
     }
-    //funcao que mostra as agencias já preenchido para a alteração
+    //funcao que mostra as marcas já preenchido para a alteração
     function selectIdMarca($idMarca){
         
         $banco = abrirBanco();
         //a consulta sql
-        $sql = "SELECT * FROM Marcas WHERE idAgencia ='$idMarca'";
+        $sql = "SELECT * FROM Marcas WHERE idMarca ='$idMarca'";
         $resultado = $banco->query($sql);
         $banco->close();
         $Marcas = mysqli_fetch_assoc($resultado);
         return $Marcas;
     }
     
-    //funcao que altera uma único agencia especifica
+    //funcao que altera uma única marca especifica
     function alterarMarca(){
         
         $banco = abrirBanco();
@@ -94,7 +94,7 @@
         $banco = abrirBanco();
         //variável id que vai ser usada na consulta
         $idMarca = $_POST["idMarca"]; 
-        //delete do usuário específico 
+        //delete da marca específica 
         $sql = "DELETE FROM Marcas WHERE idMarca='$idMarca'";
         $banco->query($sql);
         $banco->close();

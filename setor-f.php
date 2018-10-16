@@ -1,5 +1,6 @@
 <html lang="pt-BR">
     <head>
+    <title>Cadastrar - Setor</title>
         <?php
             include("tmpl/head.php");
         ?>
@@ -15,19 +16,18 @@
         <!--form-->
         <div class="container h-100">
             <div class="row h-100 justify-content-center align-items-center">
-            
                 <!--form-->
-                <form name="dadosMarca" action="marca-c.php" method="POST">
-                <h3>Cadastrar - Marca</h3>
+                <form name="dadosSetor" action="setor-c.php" method="POST">
+                    <h3>Cadastro de Setor</h3>
                     <table class="" border="1">
                         <tbody>
                             <tr>
-                                <td>Código Marca:</td>
-                                <td><input type="text" name="idMarca" value="" disabled="true" /></td>
+                                <td>Código Setor:</td>
+                                <td><input type="text" name="idSetor" value="" disabled="true" /></td>
                             </tr>   
                             <tr>
-                                <td>Marca:</td>
-                                <td><input type="text" name="nomeMarca" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                                <td>Setor:</td>
+                                <td><input type="text" name="nomeSetor" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
                             </tr>
                             <tr>
                                 <td><input type="submit" name="acao" value="Enviar" onclick="alert('Cadastro efetuado com sucesso.');"></td>
@@ -37,6 +37,5 @@
                 </form>
             </div>
         </div>
-
     </body>          
 </html>

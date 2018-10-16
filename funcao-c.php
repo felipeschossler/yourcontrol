@@ -3,56 +3,52 @@
     //verificando valor da acao para redirecionar para a determinada acao
     if(isset($_POST["acao"])){
         if ($_POST["acao"] == "Enviar"){
-            inserirModelo();
+            inserirFuncao();
         }
         if ($_POST["acao"] == "Alterar"){
-            alterarModelo();
+            alterarFuncao();
         }
         if ($_POST["acao"] == "Excluir"){
-            excluirModelo();
+            excluirFuncao();
         }
         
     }
     
     //funcao que passa o local e as credenciais para logar no banco
-    function abrirBanco(){
+    function abrirBancoFuncao(){
         $conexao = new mysqli("localhost","root","","banco");
         return $conexao;
     }
-
     //funcao que redireciona para a página inicial
-    function voltarIndex(){
-        header("location:index.php");
+    function gotoConsultaFuncao(){
+        header("location:funcao-consulta.php");
     }
-    
-    //funcao que insere modelo
-    function inserirModelo(){
-        $banco = abrirBanco();
+    //funcao que insere funcao
+    function inserirFuncao(){
+        $banco = abrirBancoFuncao();
         //declarando as variáveis usadas na inserção dos dados
-        $idMarca    = $_POST["idMarca"];
-        $nomeModelo = $_POST["nomeModelo"];
+        $nomeFuncao = $_POST["nomeFuncao"];
         //a consulta sql
-        $sql = "INSERT INTO Modelos(idMarca, nomeModelo) VALUES ('$idMarca', '$nomeModelo')";
+        $sql = "INSERT INTO Funcoes(nomeFuncao) VALUES ('$nomeFuncao')";
         
         //executando a inclusão
         $banco->query($sql);
         //fechando a conexao com o banco
         $banco->close();
-        voltarIndex();
+        gotoConsultaFuncao();
     }
-
-    function selectTodos(){
+    function selectTodasFuncoes(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoFuncao();
         //a consulta sql
-        $sql = "SELECT * FROM Modelos ORDER BY nomeModelo";
+        $sql = "SELECT * FROM Funcoes ORDER BY nomeFuncao";
         //executando a consulta
         $resultado = $banco->query($sql);
         //mostra um alert se não tiver nem um dado na table
         if($resultado->num_rows === 0){
             ?>
                 <script type="text/javascript">
-                alert("Nenhum modelo foi cadastrado.");
+                alert("Nenhuma função foi cadastrada.");
                 window.location.href = "index.php";
                 </script>
             <?php
@@ -67,42 +63,41 @@
             return $grupo;
         }
     }
-    //funcao que mostra as marcas já preenchido para a alteração
-    function selectIdModelo($idModelo){
+    //funcao que mostra as funcoes já preenchido para a alteração
+    function selectIdFuncao($idFuncao){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoFuncao();
         //a consulta sql
-        $sql = "SELECT * FROM Modelos WHERE idModelo ='$idModelo'";
+        $sql = "SELECT * FROM Funcoes WHERE idFuncao ='$idFuncao'";
         $resultado = $banco->query($sql);
         $banco->close();
-        $Modelos = mysqli_fetch_assoc($resultado);
-        return $Modelos;
+        $funcoes = mysqli_fetch_assoc($resultado);
+        return $funcoes;
     }
     
     //funcao que altera uma única marca especifica
-    function alterarModelo(){
+    function alterarFuncao(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoFuncao();
         
         //declarando as variáveis usadas no update
-        $idModelo   = $_POST["idModelo"];
-        $idMarca    = $_POST["idMarca"];
-        $nomeModelo = $_POST["nomeModelo"];
-        //update no modelo especifico no qual já deve existir a informação
-        $sql = "UPDATE Modelos SET nomeModelo='$nomeModelo' WHERE idModelo='$idModelo'";
+        $idFuncao = $_POST["idFuncao"];
+        $nomeFuncao = $_POST["nomeFuncao"];
+        //update no usuario especifico no qual já deve existir a informação
+        $sql = "UPDATE Funcoes SET nomeFuncao='$nomeFuncao' WHERE idFuncao='$idFuncao'";
         $banco->query($sql);
         $banco->close();
-        voltarIndex();
+        gotoConsultaFuncao();
     }
-    function excluirModelo(){
+    function excluirFuncao(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoFuncao();
         //variável id que vai ser usada na consulta
-        $idModelo = $_POST["idModelo"]; 
-        //delete da marca específica 
-        $sql = "DELETE FROM Modelos WHERE idModelo='$idModelo'";
+        $idFuncao = $_POST["idFuncao"]; 
+        //delete da funcao específica 
+        $sql = "DELETE FROM Funcoes WHERE idFuncao='$idFuncao'";
         $banco->query($sql);
         $banco->close();
-        voltarIndex();
+        gotoConsultaFuncao();
     }
 ?>

@@ -1,10 +1,10 @@
 <?php 
-include("modelo-c.php"); 
-$Modelos = selectIdModelo($_POST["idModelo"]);
+    include("setor-c.php"); 
+    $setor = selectIdSetor($_POST["idSetor"]);
 ?>
 <html lang="pt-BR">
 <head>
-    <title>Alterar - Modelo</title>
+    <title>Alterar - Setor</title>
     <?php
         include("tmpl/head.php");
     ?>
@@ -20,21 +20,21 @@ $Modelos = selectIdModelo($_POST["idModelo"]);
     <!--form-->
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
-            <form name="dadosModelo" action="modelo-c.php" method="POST">
+            <form name="dadosSetor" action="setor-c.php" method="POST">
                 <table border="1">
                     <tbody>
                         <tr>
-                            <td>Código Modelo:</td>
-                            <td><input type="text" name="idModelo" value="<?=$Modelos["idModelo"]?>" size="20" disabled="true" /></td>
+                            <td>Código Setor:</td>
+                            <td><input type="text" name="idSetor" value="<?=$setores["idSetor"]?>" size="20" disabled="true" /></td>
                         </tr>   
                         <tr>
                             <td>Nome:</td>
-                            <td><input type="text" name="nomeModelo" value="<?=$Modelos["nomeModelo"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeSetor" value="<?=$setores["nomeSetor"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
                         </tr>
                         <tr>
                             <td>
                                 <input type="hidden" name="acao" value="Alterar" />
-                                <input type="hidden" name="idModelo" value="<?=$Modelos["idModelo"]?>" />
+                                <input type="hidden" name="idSetor" value="<?=$setores["idSetor"]?>" />
                             </td>
                             <td><input type="submit" name="enviar" value="Alterar" onclick="alert('Cadastro alterado com sucesso.');"/></td>
                         </tr>

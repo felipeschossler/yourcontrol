@@ -3,19 +3,19 @@
     //verificando valor da acao para redirecionar para a determinada acao
     if(isset($_POST["acao"])){
         if ($_POST["acao"] == "Enviar"){
-            inserirProduto();
+            inserirFuncionario();
         }
         if ($_POST["acao"] == "Alterar"){
-            alterarProduto();
+            alterarFuncionario();
         }
         if ($_POST["acao"] == "Excluir"){
-            excluirProduto();
+            excluirFuncionario();
         }
     
     }
 
     //funcao que passa o local e as credenciais para logar no banco
-    function abrirBancoProduto(){
+    function abrirBancoFuncionario(){
         $conexao = new mysqli("localhost","root","","banco");
         return $conexao;
     }
@@ -26,24 +26,24 @@
     }
 
     //funcao que insere produto
-    function inserirProduto(){
-        $banco = abrirBancoProduto();
+    function inserirFuncionario(){
+        $banco = abrirBancoFuncionario();
         //declarando as variáveis usadas na inserção dos dados
-        $idModelo          = $_POST['idModelo'];  //FK
-        $nomeProduto       = $_POST['nomeProduto'];
-        $serialProduto     = $_POST['serialProduto'];
-        $quantidadeProduto = $_POST['quantidadeProduto'];
+        $idSetor         = $_POST['idSetor'];  //FK
+        $idFuncao        = $_POST['idFuncao'];  //FK
+        $nomeFuncionario = $_POST['nomeFuncionario'];
+        $cpfFuncionario  = $_POST['cpfFuncionario'];
         //a consulta sql
-        $sql = "INSERT INTO Produtos(
-                    idModelo,
-                    nomeProduto,
-                    serialProduto,
-                    quantidadeProduto) 
+        $sql = "INSERT INTO Funcionarios(
+                    idSetor,
+                    idFuncao,
+                    nomeFuncionario,
+                    cpfFuncionario) 
                 VALUES (
-                    '$idModelo',
-                    '$nomeProduto',
-                    '$serialProduto',
-                    '$quantidadeProduto')";
+                    '$idSetor',
+                    '$idFuncao',
+                    '$nomeFuncionario',
+                    '$cpfFuncionario')";
         
         //executando a inclusão
         $banco->query($sql);
@@ -52,18 +52,18 @@
         goConsulta();
     }
 
-    function selectTodosProdutos(){
+    function selectTodosFuncionarios(){
         
-        $banco = abrirBancoProduto();
+        $banco = abrirBancoFuncionario();
         //a consulta sql
-        $sql = "SELECT * FROM Produtos ORDER BY nomeProduto";
+        $sql = "SELECT * FROM Funcionarios ORDER BY nomeFuncionario";
         //executando a consulta
         $resultado = $banco->query($sql);
         //mostra todos os usuários dentro do array
         if($resultado->num_rows === 0){
             ?>
                 <script type="text/javascript">
-                alert("Nenhum produto foi cadastrado.");
+                alert("Nenhum funcionário foi cadastrado.");
                 window.location.href = "index.php";
                 </script>
             <?php
@@ -77,42 +77,42 @@
     }
 
     //funcao que mostra os produtos já preenchido para a alteração
-    function selectIdProduto($idProduto){
+    function selectIdFuncionario($idFuncionario){
         
-        $banco = abrirBancoProduto();
+        $banco = abrirBancoFuncionario();
         //a consulta sql
-        $sql = "SELECT * FROM Produtos WHERE idProduto ='$idProduto'";
+        $sql = "SELECT * FROM Funcionarios WHERE idFuncionario ='$idFuncionario'";
         $resultado = $banco->query($sql);
         $banco->close();
-        $Produtos = mysqli_fetch_assoc($resultado);
-        return $Produtos;
+        $funcionarios = mysqli_fetch_assoc($resultado);
+        return $funcionarios;
     }
 
     //funcao que altera um único produto especifico
-    function alterarProduto(){
-        $banco = abrirBancoProduto();
+    function alterarFuncionario(){
+        $banco = abrirBancoFuncionario();
         
         //declarando as variáveis usadas no update
-        $idProduto     = $_POST["idProduto"];
-        $idModelo      = $_POST["idModelo"];
-        $nomeProduto   = $_POST["nomeProduto"];
-        $serialProduto = $_POST["serialProduto"];
-        $quantidadeProduto = $_POST["quantidadeProduto"];
+        $idFuncionario   = $_POST["idFuncionario"];
+        $idSetor         = $_POST["idSetor"];
+        $idFuncao        = $_POST["idFuncao"];
+        $nomeFuncionario = $_POST["nomeFuncionario"];
+        $cpfFuncionario  = $_POST["cpfFuncionario"];
 
         //update no usuario especifico no qual já deve existir a informação
-        $sql = "UPDATE Produtos SET idModelo='$idModelo', nomeProduto='$nomeProduto', serialProduto='$serialProduto', quantidadeProduto='$quantidadeProduto' WHERE idProduto='$idProduto'";
+        $sql = "UPDATE Funcionarios SET idSetor='$idSetor', idFuncao='$idFuncao', nomeFuncionario='$nomeFuncionario', cpfFuncionario='$cpfFuncionario' WHERE idFuncionario='$idFuncionario'";
         $banco->query($sql);
         $banco->close();
         goConsulta();
     }
 
-    function excluirProduto(){
-        $banco = abrirBancoProduto();
+    function excluirFuncionario(){
+        $banco = abrirBancoFuncionario();
 
         //variável id que vai ser usada na consulta
-        $idProduto = $_POST["idProduto"]; 
+        $idFuncionario = $_POST["idFuncionario"]; 
         //delete do usuário específico 
-        $sql = "DELETE FROM Produtos WHERE idProduto='$idProduto'";
+        $sql = "DELETE FROM Funcionarios WHERE idFuncionario='$idFuncionario'";
         $banco->query($sql);
         $banco->close();
         goConsulta();

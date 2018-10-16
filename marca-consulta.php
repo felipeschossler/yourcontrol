@@ -1,44 +1,61 @@
-<?php include("Marca-c.php");
+<?php 
+    include("marca-c.php");
     $grupo = selectTodos();
     //var_dump($grupo);
 ?>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <title>Consulta Marca</title>
-    <meta charset="utf-8">
+    <title>Consulta - Marca</title>
+    <?php
+        include("tmpl/head.php");
+    ?>
 </head>
 <body>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Código:</th>
-                <th>Nome</th>
-                <th>Editar</th>
-                <th>Excluir</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($grupo as $Marcas) { ?>
-                <tr>
-                    <td><?=$Marcas["idMarca"]?></td>
-                    <td><?=$Marcas["nomeMarca"]?></td>
-                    <td>
-                        <form nome="alterar" action="marca-a.php" method="POST">
-                            <input type="hidden" name="idMarca" value=<?=$Agencias["idMarca"]?> />
-                            <input type="submit" name="Editar" value="Editar" />
-                        </form>
-                    </td>
-                    <td>
-                        <form name="excluir" action="marca-c.php" method="POST">
-                            <input type="hidden" name="idMarca" value=<?=$Marcas["idMarca"]?> />
-                            <input type="submit" name="acao" value="Excluir" onclick="alert('Cadastro excluído com sucesso.');"/>
-                        </form>    
-                    </td>
-                </tr>   
-            <?php } ?>
-        </tbody>
-    </table>
-    <br>
-    <a href="index.html">Voltar ao início</a>
+
+    <!--includes-->
+    <?php 
+        include("tmpl/header.php");
+        include("tmpl/footer.php");
+    ?> 
+
+    <!--table-->
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <form name="#" action="#" method="#">
+                <h3>Consultar - Marca</h3>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Código:</th>
+                            <th>Nome</th>
+                            <th>Editar</th>
+                            <th>Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($grupo as $Marcas) { ?>
+                            <tr>
+                                <td><?=$Marcas["idMarca"]?></td>
+                                <td><?=$Marcas["nomeMarca"]?></td>
+                                <td>
+                                    <form nome="alterar" action="marca-a.php" method="POST">
+                                        <input type="hidden" name="idMarca" value=<?=$Marcas["idMarca"]?> />
+                                        <input type="submit" name="Editar" value="Editar" />
+                                    </form>
+                                </td>
+                                <td>
+                                    <form name="excluir" action="marca-c.php" method="POST">
+                                        <input type="hidden" name="idMarca" value=<?=$Marcas["idMarca"]?> />
+                                        <input type="submit" name="acao" value="Excluir" onclick="alert('Cadastro excluído com sucesso.');"/>
+                                    </form>    
+                                </td>
+                            </tr>   
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>

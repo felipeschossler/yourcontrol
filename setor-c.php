@@ -3,56 +3,52 @@
     //verificando valor da acao para redirecionar para a determinada acao
     if(isset($_POST["acao"])){
         if ($_POST["acao"] == "Enviar"){
-            inserirModelo();
+            inserirSetor();
         }
         if ($_POST["acao"] == "Alterar"){
-            alterarModelo();
+            alterarSetor();
         }
         if ($_POST["acao"] == "Excluir"){
-            excluirModelo();
+            excluirSetor();
         }
         
     }
     
     //funcao que passa o local e as credenciais para logar no banco
-    function abrirBanco(){
+    function abrirBancoSetor(){
         $conexao = new mysqli("localhost","root","","banco");
         return $conexao;
     }
-
     //funcao que redireciona para a página inicial
-    function voltarIndex(){
-        header("location:index.php");
+    function gotoConsultaSetor(){
+        header("location:setor-consulta.php");
     }
-    
-    //funcao que insere modelo
-    function inserirModelo(){
-        $banco = abrirBanco();
+    //funcao que insere setor
+    function inserirSetor(){
+        $banco = abrirBancoSetor();
         //declarando as variáveis usadas na inserção dos dados
-        $idMarca    = $_POST["idMarca"];
-        $nomeModelo = $_POST["nomeModelo"];
+        $nomeSetor = $_POST["nomeSetor"];
         //a consulta sql
-        $sql = "INSERT INTO Modelos(idMarca, nomeModelo) VALUES ('$idMarca', '$nomeModelo')";
+        $sql = "INSERT INTO Setores(nomeSetor) VALUES ('$nomeSetor')";
         
         //executando a inclusão
         $banco->query($sql);
         //fechando a conexao com o banco
         $banco->close();
-        voltarIndex();
+        gotoConsultaSetor();
     }
-
-    function selectTodos(){
+    function selectTodosSetores(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoSetor();
         //a consulta sql
-        $sql = "SELECT * FROM Modelos ORDER BY nomeModelo";
+        $sql = "SELECT * FROM Setores ORDER BY nomeSetor";
         //executando a consulta
         $resultado = $banco->query($sql);
         //mostra um alert se não tiver nem um dado na table
         if($resultado->num_rows === 0){
             ?>
                 <script type="text/javascript">
-                alert("Nenhum modelo foi cadastrado.");
+                alert("Nenhum setor foi cadastrado.");
                 window.location.href = "index.php";
                 </script>
             <?php
@@ -67,42 +63,41 @@
             return $grupo;
         }
     }
-    //funcao que mostra as marcas já preenchido para a alteração
-    function selectIdModelo($idModelo){
+    //funcao que mostra os setores já preenchido para a alteração
+    function selectIdSetor($idSetor){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoSetor();
         //a consulta sql
-        $sql = "SELECT * FROM Modelos WHERE idModelo ='$idModelo'";
+        $sql = "SELECT * FROM Setores WHERE idSetor ='$idSetor'";
         $resultado = $banco->query($sql);
         $banco->close();
-        $Modelos = mysqli_fetch_assoc($resultado);
-        return $Modelos;
+        $setores = mysqli_fetch_assoc($resultado);
+        return $setores;
     }
     
-    //funcao que altera uma única marca especifica
-    function alterarModelo(){
+    //funcao que altera um único setor especifico
+    function alterarSetor(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoSetor();
         
         //declarando as variáveis usadas no update
-        $idModelo   = $_POST["idModelo"];
-        $idMarca    = $_POST["idMarca"];
-        $nomeModelo = $_POST["nomeModelo"];
-        //update no modelo especifico no qual já deve existir a informação
-        $sql = "UPDATE Modelos SET nomeModelo='$nomeModelo' WHERE idModelo='$idModelo'";
+        $idSetor = $_POST["idSetor"];
+        $nomeSetor = $_POST["nomeSetor"];
+        //update no usuario especifico no qual já deve existir a informação
+        $sql = "UPDATE Setores SET nomeSetor='$nomeSetor' WHERE idSetor='$idSetor'";
         $banco->query($sql);
         $banco->close();
-        voltarIndex();
+        gotoConsultaSetor();
     }
-    function excluirModelo(){
+    function excluirSetor(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoSetor();
         //variável id que vai ser usada na consulta
-        $idModelo = $_POST["idModelo"]; 
-        //delete da marca específica 
-        $sql = "DELETE FROM Modelos WHERE idModelo='$idModelo'";
+        $idSetor = $_POST["idSetor"]; 
+        //delete da funcao específica 
+        $sql = "DELETE FROM Setores WHERE idSetor='$idSetor'";
         $banco->query($sql);
         $banco->close();
-        voltarIndex();
+        gotoConsultaSetor();
     }
 ?>

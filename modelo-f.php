@@ -1,27 +1,38 @@
 <?php 
     //Marca
     include("marca-c.php");
-    $grupo = selectTodos();    
-    
+    $grupo = selectTodos();
 ?>
+<html lang="pt-BR">
+<head>
+    <title>Cadastrar - Modelo</title>
+    <?php
+        include("tmpl/head.php");
+    ?>
+</head>
+<body>
 
-<DOCTYPE html>
-    <html lang="pt-br">
-        <head>
-            <title>Criar Modelo</title>
-            <meta charset="utf-8">
-        </head>
-        
+    <!--includes-->
+    <?php
+        include("tmpl/header.php");
+        include("tmpl/footer.php");
+    ?>
+
+    <!--form-->
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
             <form name="Modelos" action="modelo-c.php" method="POST">
-    
+                <h3>Cadastro de Modelo</h3>
                 <table border="1">
                     <tbody>
-    
                         <tr>
                             <td>Código Modelo</td>
                             <td><input type="text" name="idModelo" value="" disabled="true" /></td>
-                        </tr>   
-                       
+                        </tr> 
+                        <tr>
+                            <td>Modelo:</td>
+                            <td><input type="text" name="nomeModelo" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                        </tr>
                         <tr>
                             <td>Marca</td>
                             <td>
@@ -34,15 +45,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Nome Modelo</td>
-                            <td><input type="text" name="nomeModelo" value="" /></td>
+                            <td><input type="submit" name="acao" value="Enviar" onclick="alert('Cadastro efetuado com sucesso.');"/></td>
                         </tr>
-                        <tr>
-                            <td><input type="submit" name="acao" value="Enviar" /></td>
-                        </tr>
-    
                     </tbody>
                 </table>
-    
-            </form>  
+            </form>
+        </div>
+    </div>
+
+</body>
 </html>

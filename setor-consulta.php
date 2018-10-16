@@ -1,20 +1,16 @@
 <?php 
-    include("modelo-c.php");
-    //pega por post o componente codigo do formulario -F.
-    @$idModelo 	          = $_POST['idModelo'];
-    @$nomeModelo         = $_POST['nomeModelo'];
-    @$nomeMarca         = $_POST['nomeMarca'];  //FK
-    
-    $grupo = selectTodos();
+    include("setor-c.php");
+    $grupoS = selectTodosSetores();
     //var_dump($grupo);
 ?>
 <html lang="pt-BR">
 <head>
-    <title>Consultar - Modelo</title>
+    <title>Consultar - Setor</title>
     <?php
         include("tmpl/head.php");
     ?>
 </head>
+<body>
 
     <!--includes-->
     <?php 
@@ -26,40 +22,35 @@
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <form name="#" action="#" method="#">
-                <h3>Consultar - Modelo</h3>
                 <table class="table">
+                <h3>Consultar - Setor</h3>
                     <thead class="thead-dark">
                         <tr>
-                            <th>ID Modelo</th>
-                            <th>ID Marca</th>
-                            <th>Nome Modelo</th>
+                            <th>Código:</th>
+                            <th>Nome</th>
                             <th>Editar</th>
                             <th>Excluir</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($grupo as $Modelos) { ?>
+                        <?php foreach ($grupoS as $setores) { ?>
                             <tr>
-                                <td><?=$Modelos["idModelo"]?></td>
-                                <td><?=$Modelos["idMarca"]?></td>
-                                <td><?=$Modelos["nomeModelo"]?></td>
+                                <td><?=$setores["idSetor"]?></td>
+                                <td><?=$setores["nomeSetor"]?></td>
                                 <td>
-                                    <form nome="alterar" action="modelo-a.php" method="POST">
-                                        <input type="hidden" name="idModelo" value=<?=$Modelos["idModelo"]?> />
+                                    <form nome="alterar" action="setor-a.php" method="POST">
+                                        <input type="hidden" name="idSetor" value=<?=$setores["idSetor"]?> />
                                         <input type="submit" name="Editar" value="Editar" />
                                     </form>
                                 </td>
                                 <td>
-                                    <form name="excluir" action="modelo-c.php" method="POST">
-                                        <input type="hidden" name="idModelo" value=<?=$Modelos["idModelo"]?> />
+                                    <form name="excluir" action="setor-c.php" method="POST">
+                                        <input type="hidden" name="idSetor" value=<?=$setores["idSetor"]?> />
                                         <input type="submit" name="acao" value="Excluir" onclick="alert('Cadastro excluído com sucesso.');"/>
                                     </form>    
-                                    
                                 </td>
                             </tr>   
-
                         <?php } ?>
-
                     </tbody>
                 </table>
             </form>
