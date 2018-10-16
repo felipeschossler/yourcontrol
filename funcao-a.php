@@ -4,7 +4,7 @@
 ?>
 <html lang="pt-BR">
 <head>
-    <title>Alterar - Funcao</title>
+    <title>Alterar - Função</title>
     <?php
         include("tmpl/head.php");
     ?>

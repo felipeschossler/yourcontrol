@@ -1,5 +1,6 @@
 <html lang="pt-BR">
     <head>
+    <title>Cadastrar - Setor</title>
         <?php
             include("tmpl/head.php");
         ?>
@@ -25,7 +26,7 @@
                                 <td><input type="text" name="idSetor" value="" disabled="true" /></td>
                             </tr>   
                             <tr>
-                                <td>Nome:</td>
+                                <td>Setor:</td>
                                 <td><input type="text" name="nomeSetor" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
                             </tr>
                             <tr>

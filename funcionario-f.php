@@ -26,7 +26,7 @@
         <div class="container h-100">
             <div class="row h-100 justify-content-center align-items-center">
                 <form name="Funcionario" action="funcionario-c.php" method="POST">
-                    <h3>Cadastrar Funcionário</h3>
+                    <h3>Cadastro - Funcionário</h3>
                     <table border="1">
                         <tbody>
                             <tr>

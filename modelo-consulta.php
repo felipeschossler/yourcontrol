@@ -10,7 +10,7 @@
 ?>
 <html lang="pt-BR">
 <head>
-    <title>Consulta - Modelo</title>
+    <title>Consultar - Modelo</title>
     <?php
         include("tmpl/head.php");
     ?>

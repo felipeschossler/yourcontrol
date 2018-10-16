@@ -63,7 +63,7 @@
         if($resultado->num_rows === 0){
             ?>
                 <script type="text/javascript">
-                alert("Nenhum Funcionario está cadastrado.");
+                alert("Nenhum funcionário foi cadastrado.");
                 window.location.href = "index.php";
                 </script>
             <?php

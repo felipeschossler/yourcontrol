@@ -48,7 +48,7 @@
         if($resultado->num_rows === 0){
             ?>
                 <script type="text/javascript">
-                alert("Nenhuma funcao foi cadastrada.");
+                alert("Nenhuma função foi cadastrada.");
                 window.location.href = "index.php";
                 </script>
             <?php

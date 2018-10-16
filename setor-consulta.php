@@ -5,7 +5,7 @@
 ?>
 <html lang="pt-BR">
 <head>
-    <title>Consulta - Setor</title>
+    <title>Consultar - Setor</title>
     <?php
         include("tmpl/head.php");
     ?>

@@ -15,8 +15,10 @@
         <!--form-->
         <div class="container h-100">
             <div class="row h-100 justify-content-center align-items-center">
+            
                 <!--form-->
                 <form name="dadosMarca" action="marca-c.php" method="POST">
+                <h3>Cadastrar - Marca</h3>
                     <table class="" border="1">
                         <tbody>
                             <tr>
@@ -24,7 +26,7 @@
                                 <td><input type="text" name="idMarca" value="" disabled="true" /></td>
                             </tr>   
                             <tr>
-                                <td>Nome:</td>
+                                <td>Marca:</td>
                                 <td><input type="text" name="nomeMarca" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
                             </tr>
                             <tr>

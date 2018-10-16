@@ -1,5 +1,6 @@
 <html lang="pt-BR">
     <head>
+    <title>Cadastrar - Função</title>
         <?php
             include("tmpl/head.php");
         ?>
@@ -17,7 +18,7 @@
             <div class="row h-100 justify-content-center align-items-center">
                 <!--form-->
                 <form name="dadosFuncao" action="funcao-c.php" method="POST">
-                    <h3>Cadastro de Função</h3>
+                    <h3>Cadastro - Função</h3>
                     <table class="" border="1">
                         <tbody>
                             <tr>
@@ -25,7 +26,7 @@
                                 <td><input type="text" name="idFuncao" value="" disabled="true" /></td>
                             </tr>   
                             <tr>
-                                <td>Nome:</td>
+                                <td>Função:</td>
                                 <td><input type="text" name="nomeFuncao" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
                             </tr>
                             <tr>

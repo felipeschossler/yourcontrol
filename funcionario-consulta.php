@@ -12,7 +12,7 @@
 ?>
 <html lang="pt-BR">
     <head>
-        <title>Consulta - Funcionario</title>
+        <title>Consultar - Funcionário</title>
         <?php
             include("tmpl/head.php");
         ?>

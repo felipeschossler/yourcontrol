@@ -14,7 +14,7 @@
 ?>
 <html lang="pt-BR">
 <head>
-    <title>Alterar - Funcionarios</title>
+    <title>Alterar - Funcionário</title>
     <?php
         include("tmpl/head.php");
     ?>

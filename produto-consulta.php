@@ -12,7 +12,7 @@
 ?>
 <html lang="pt-BR">
 <head>
-    <title>Consulta - Produto</title>
+    <title>Consultar - Produto</title>
     <?php
         include("tmpl/head.php");
     ?>

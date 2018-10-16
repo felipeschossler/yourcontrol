@@ -63,7 +63,7 @@
         if($resultado->num_rows === 0){
             ?>
                 <script type="text/javascript">
-                alert("Nenhum produto está cadastrado.");
+                alert("Nenhum produto foi cadastrado.");
                 window.location.href = "index.php";
                 </script>
             <?php
