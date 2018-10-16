@@ -21,7 +21,7 @@
     <!--table-->
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
-            <form name="#" action="#" method="#">
+            <div class="form">
                 <table class="table">
                 <h3>Consultar - Setor</h3>
                     <thead class="thead-dark">
@@ -53,7 +53,7 @@
                         <?php } ?>
                     </tbody>
                 </table>
-            </form>
+            </div>
         </div>
     </div>
 
