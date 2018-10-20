@@ -44,6 +44,17 @@
                         <a class="dropdown-item" href="funcionario-consulta.php">Consultar Funcionário</a>
                     </div>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Movimentação
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="movimentacao-f.php">Cadastrar Movimentação</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="movimentacao-consulta.php">Consultar Movimentação</a>
+                    </div>
+                </li>
             </ul>
             <!--link of brand-->
             <a class="navbar-brand" href="#possivelpaginainstitucional">
