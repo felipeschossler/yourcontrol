@@ -4,12 +4,12 @@
 
     //Setor
     include("setor-c.php");
-    $setores = selectIdSetor($_POST["idSetor"]);
+    //$setores = selectIdSetor($_POST["idSetor"]);
     $grupoS = selectTodosSetores();
 
     //Funcao
     include("funcao-c.php");
-    $funcoes = selectIdFuncao($_POST["idFuncao"]);
+    //$funcoes = selectIdFuncao($_POST["idFuncao"]);
     $grupoF = selectTodasFuncoes();
 ?>
 <html lang="pt-BR">
