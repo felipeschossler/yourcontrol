@@ -21,8 +21,8 @@
     }
 
     //funcao que redireciona para a página inicial
-    function goConsulta(){
-        header("location:index.php");
+    function goToConsulta(){
+        header("location:produto-consulta.php");
     }
 
     //funcao que insere produto
@@ -49,7 +49,7 @@
         $banco->query($sql);
         //fechando a conexao com o banco
         $banco->close();
-        goConsulta();
+        goToConsulta();
     }
 
     function selectTodosProdutos(){
@@ -103,7 +103,7 @@
         $sql = "UPDATE Produtos SET idModelo='$idModelo', nomeProduto='$nomeProduto', serialProduto='$serialProduto', quantidadeProduto='$quantidadeProduto' WHERE idProduto='$idProduto'";
         $banco->query($sql);
         $banco->close();
-        goConsulta();
+        goToConsulta();
     }
 
     function excluirProduto(){
@@ -115,6 +115,6 @@
         $sql = "DELETE FROM Produtos WHERE idProduto='$idProduto'";
         $banco->query($sql);
         $banco->close();
-        goConsulta();
+        goToConsulta();
         }
 ?>

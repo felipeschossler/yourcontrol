@@ -21,8 +21,8 @@
     }
 
     //funcao que redireciona para a página inicial
-    function goConsulta(){
-        header("location:index.php");
+    function goToConsulta(){
+        header("location:funcionario-consulta.php");
     }
 
     //funcao que insere produto
@@ -49,7 +49,7 @@
         $banco->query($sql);
         //fechando a conexao com o banco
         $banco->close();
-        goConsulta();
+        goToConsulta();
     }
 
     function selectTodosFuncionarios(){
@@ -103,7 +103,7 @@
         $sql = "UPDATE Funcionarios SET idSetor='$idSetor', idFuncao='$idFuncao', nomeFuncionario='$nomeFuncionario', cpfFuncionario='$cpfFuncionario' WHERE idFuncionario='$idFuncionario'";
         $banco->query($sql);
         $banco->close();
-        goConsulta();
+        goToConsulta();
     }
 
     function excluirFuncionario(){
@@ -115,6 +115,6 @@
         $sql = "DELETE FROM Funcionarios WHERE idFuncionario='$idFuncionario'";
         $banco->query($sql);
         $banco->close();
-        goConsulta();
+        goToConsulta();
         }
 ?>

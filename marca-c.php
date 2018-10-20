@@ -20,8 +20,8 @@
         return $conexao;
     }
     //funcao que redireciona para a página inicial
-    function voltarIndex(){
-        header("location:index.php");
+    function goToConsulta(){
+        header("location:marca-consulta.php");
     }
     //funcao que insere marca
     function inserirMarca(){
@@ -35,7 +35,7 @@
         $banco->query($sql);
         //fechando a conexao com o banco
         $banco->close();
-        voltarIndex();
+        goToConsulta();
     }
     function selectTodos(){
         
@@ -87,7 +87,7 @@
         $sql = "UPDATE Marcas SET nomeMarca='$nomeMarca' WHERE idMarca='$idMarca'";
         $banco->query($sql);
         $banco->close();
-        voltarIndex();
+        goToConsulta();
     }
     function excluirMarca(){
         
@@ -98,6 +98,6 @@
         $sql = "DELETE FROM Marcas WHERE idMarca='$idMarca'";
         $banco->query($sql);
         $banco->close();
-        voltarIndex();
+        goToConsulta();
     }
 ?>
