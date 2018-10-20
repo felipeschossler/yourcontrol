@@ -21,7 +21,8 @@ $Modelos = selectIdModelo($_POST["idModelo"]);
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <form name="dadosModelo" action="modelo-c.php" method="POST">
-                <table border="1">
+                <h3>Alterar - Modelo</h3>
+                <table class="table">
                     <tbody>
                         <tr>
                             <td>Código Modelo:</td>

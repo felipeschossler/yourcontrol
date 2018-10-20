@@ -21,7 +21,8 @@
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <form name="dadosFuncao" action="funcao-c.php" method="POST">
-                <table border="1">
+                <h3>Alterar - Função</h3>
+                <table class="table">
                     <tbody>
                         <tr>
                             <td>Código Função:</td>

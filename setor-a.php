@@ -1,6 +1,6 @@
 <?php 
     include("setor-c.php"); 
-    $setor = selectIdSetor($_POST["idSetor"]);
+    $setores = selectIdSetor($_POST["idSetor"]);
 ?>
 <html lang="pt-BR">
 <head>
@@ -21,7 +21,8 @@
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <form name="dadosSetor" action="setor-c.php" method="POST">
-                <table border="1">
+                <h3>Alterar - Setor</h3>
+                <table class="table">
                     <tbody>
                         <tr>
                             <td>Código Setor:</td>

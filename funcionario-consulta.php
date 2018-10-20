@@ -2,12 +2,12 @@
     include("funcionario-c.php");
     //pega por post o componente codigo do formulario -F.
     @$idFuncionario     = $_POST['idFuncionario'];
-    @$nomeFuncionario   = $_POST['nomeFuncionario'];
     @$idSetor           = $_POST['idSetor'];  //FK
     @$idFuncao          = $_POST['idFuncao'];  //FK
+    @$nomeFuncionario   = $_POST['nomeFuncionario'];
     @$cpfFuncionario    = $_POST['cpfFuncionario'];
     
-    $grupoF = selectTodosFuncionarios();
+    $grupoE = selectTodosFuncionarios();
     //var_dump($grupo);
 ?>
 <html lang="pt-BR">
@@ -42,7 +42,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($grupoF as $funcionarios) { ?>
+                            <?php foreach ($grupoE as $funcionarios) { ?>
                                 <tr>
                                     <td><?=$funcionarios["idFuncionario"]?></td>
                                     <td><?=$funcionarios["idSetor"]?></td>
