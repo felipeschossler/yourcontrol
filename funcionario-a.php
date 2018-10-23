@@ -62,16 +62,16 @@
                         </tr>
                         <tr>
                             <td>Nome</td>
-                            <td><input type="text" name="nomeFuncionario" value="<?=$funcionarios["nomeFuncionario"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeFuncionario" value="<?=$funcionarios["nomeFuncionario"]?>" /></td>
                         </tr>
                         <tr>
                             <td>CPF</td>
-                            <td><input type="text" name="cpfFuncionario" value="<?=$funcionarios["cpfFuncionario"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="cpfFuncionario" value="<?=$funcionarios["cpfFuncionario"]?>" /></td>
                         </tr>
                         <tr>
                             <td>
                                 <input type="hidden" name="acao" value="Alterar" />
-                                <input type="hidden" name="idFuncionario" value="<?=$funcionarios["idFuncionario"]?>" onkeyup="this.value = this.value.toUpperCase();"/>
+                                <input type="hidden" name="idFuncionario" value="<?=$funcionarios["idFuncionario"]?>" />
                             </td>
                             <td><input type="submit" name="enviar" value="Alterar" onclick="alert('Cadastro alterado com sucesso.');"/></td>
                         </tr>

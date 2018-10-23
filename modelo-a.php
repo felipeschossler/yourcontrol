@@ -30,7 +30,7 @@ $Modelos = selectIdModelo($_POST["idModelo"]);
                         </tr>   
                         <tr>
                             <td>Nome:</td>
-                            <td><input type="text" name="nomeModelo" value="<?=$Modelos["nomeModelo"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeModelo" value="<?=$Modelos["nomeModelo"]?>" /></td>
                         </tr>
                         <tr>
                             <td>

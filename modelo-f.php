@@ -31,7 +31,7 @@
                         </tr> 
                         <tr>
                             <td>Modelo:</td>
-                            <td><input type="text" name="nomeModelo" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeModelo" value="" /></td>
                         </tr>
                         <tr>
                             <td>Marca</td>

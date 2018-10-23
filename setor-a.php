@@ -30,7 +30,7 @@
                         </tr>   
                         <tr>
                             <td>Nome:</td>
-                            <td><input type="text" name="nomeSetor" value="<?=$setores["nomeSetor"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeSetor" value="<?=$setores["nomeSetor"]?>" /></td>
                         </tr>
                         <tr>
                             <td>

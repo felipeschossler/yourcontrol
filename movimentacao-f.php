@@ -35,7 +35,7 @@
                         </tr> 
                         <tr>
                             <td>Data Entrada:</td>
-                            <td><input type="date" name="dataEnt" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="date" name="dataEnt" value="" /></td>
                         </tr>
                         <tr>
                             <td>Funcionário</td>

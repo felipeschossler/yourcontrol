@@ -27,7 +27,7 @@
                             </tr>   
                             <tr>
                                 <td>Função:</td>
-                                <td><input type="text" name="nomeFuncao" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                                <td><input type="text" name="nomeFuncao" value="" /></td>
                             </tr>
                             <tr>
                                 <td><input type="submit" name="acao" value="Enviar" onclick="alert('Cadastro efetuado com sucesso.');"></td>

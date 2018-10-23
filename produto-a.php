@@ -46,20 +46,20 @@
                         </tr>
                         <tr>
                             <td>Nome Produto</td>
-                            <td><input type="text" name="nomeProduto" value="<?=$Produtos["nomeProduto"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeProduto" value="<?=$Produtos["nomeProduto"]?>" /></td>
                         </tr>
                         <tr>
                             <td>Serial Produto</td>
-                            <td><input type="text" name="serialProduto" value="<?=$Produtos["serialProduto"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="serialProduto" value="<?=$Produtos["serialProduto"]?>" /></td>
                         </tr>
                         <tr>
                             <td>Quantidade Produto</td>
-                            <td><input type="text" name="quantidadeProduto" value="<?=$Produtos["quantidadeProduto"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="quantidadeProduto" value="<?=$Produtos["quantidadeProduto"]?>" /></td>
                         </tr>
                         <tr>
                             <td>
                                 <input type="hidden" name="acao" value="Alterar" />
-                                <input type="hidden" name="idProduto" value="<?=$Produtos["idProduto"]?>" onkeyup="this.value = this.value.toUpperCase();"/>
+                                <input type="hidden" name="idProduto" value="<?=$Produtos["idProduto"]?>" />
                             </td>
                             <td><input type="submit" name="enviar" value="Alterar" onclick="alert('Cadastro alterado com sucesso.');"/></td>
                         </tr>

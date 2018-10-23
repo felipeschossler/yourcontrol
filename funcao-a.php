@@ -30,7 +30,7 @@
                         </tr>   
                         <tr>
                             <td>Nome:</td>
-                            <td><input type="text" name="nomeFuncao" value="<?=$funcoes["nomeFuncao"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeFuncao" value="<?=$funcoes["nomeFuncao"]?>" /></td>
                         </tr>
                         <tr>
                             <td>

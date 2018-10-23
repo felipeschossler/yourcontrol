@@ -42,15 +42,15 @@
                         </tr>
                         <tr>
                             <td>Nome:</td>
-                            <td><input type="text" name="nomeProduto" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeProduto" value="" /></td>
                         </tr>
                         <tr>
                             <td>Serial:</td>
-                            <td><input type="text" name="serialProduto" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="serialProduto" value="" /></td>
                         </tr>
                         <tr>
                             <td>Quantidade:</td>
-                            <td><input type="text" name="quantidadeProduto" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="quantidadeProduto" value="" /></td>
                         </tr>
                         <tr>
                             <td><input type="submit" name="acao" value="Enviar" onclick="alert('Cadastro efetuado com sucesso.');"/></td>
