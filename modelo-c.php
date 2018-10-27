@@ -89,10 +89,10 @@
         $idMarca    = $_POST["idMarca"];
         $nomeModelo = $_POST["nomeModelo"];
         //update no modelo especifico no qual já deve existir a informação
-        $sql = "UPDATE Modelos SET nomeModelo='$nomeModelo' WHERE idModelo='$idModelo'";
+        $sql = "UPDATE Modelos SET idMarca='$idMarca', nomeModelo='$nomeModelo' WHERE idModelo='$idModelo'";
         $banco->query($sql);
         $banco->close();
-        goToConsultaModelo();
+        //goToConsultaModelo();
     }
     function excluirModelo(){
         

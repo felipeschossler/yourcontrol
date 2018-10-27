@@ -3,10 +3,12 @@
     //pega por post o componente codigo do formulario -F.
     @$idModelo 	 = $_POST['idModelo'];
     @$nomeModelo = $_POST['nomeModelo'];
-    @$idMarca    = $_POST['idMarca'];  //FK
+    @$nomeMarca  = $_POST['nomeMarca'];  //FK
     
     $grupo = selectTodosModelos();
     //var_dump($grupo);
+    
+
 ?>
 <html lang="pt-BR">
 <head>
@@ -30,9 +32,9 @@
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th>ID Modelo</th>
-                            <th>ID Marca</th>
-                            <th>Nome Modelo</th>
+                            <th>ID</th>
+                            <th>Marca</th>
+                            <th>Nome</th>
                             <th>Editar</th>
                             <th>Excluir</th>
                         </tr>

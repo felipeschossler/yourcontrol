@@ -1,6 +1,11 @@
 <?php 
-include("modelo-c.php"); 
-$Modelos = selectIdModelo($_POST["idModelo"]);
+    include("modelo-c.php"); 
+    $Modelos = selectIdModelo($_POST["idModelo"]);
+
+    //Marca
+    include("marca-c.php");
+    //$marcas = selectIdMarca($_POST["idMarca"]);
+    $grupoMarca = selectTodos();
 ?>
 <html lang="pt-BR">
 <head>
@@ -25,9 +30,20 @@ $Modelos = selectIdModelo($_POST["idModelo"]);
                 <table class="table">
                     <tbody>
                         <tr>
-                            <td>Código Modelo:</td>
+                            <td>ID: </td>
                             <td><input type="text" name="idModelo" value="<?=$Modelos["idModelo"]?>" size="20" disabled="true" /></td>
-                        </tr>   
+                        </tr> 
+                        <tr>
+                            <td>Marca: </td>
+                            <td>
+                                <select name="idMarca">
+                                    <?php
+                                        foreach ($grupoMarca as $Marcas)
+                                        echo '<option name=" '.$Marcas['idMarca'].' " value=" ' . $Marcas['idMarca'] . '"> ' . $Marcas['nomeMarca'] . ' </option>';
+                                    ?>
+                                </select> 
+                            </td>
+                        </tr> 
                         <tr>
                             <td>Nome:</td>
                             <td><input type="text" name="nomeModelo" value="<?=$Modelos["nomeModelo"]?>" /></td>
