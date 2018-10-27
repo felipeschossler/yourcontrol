@@ -5,7 +5,7 @@
     @$nomeModelo         = $_POST['nomeModelo'];
     @$nomeMarca         = $_POST['nomeMarca'];  //FK
     
-    $grupo = selectTodos();
+    $grupo = selectTodosModelos();
     //var_dump($grupo);
 ?>
 <html lang="pt-BR">

@@ -15,21 +15,21 @@
     }
     
     //funcao que passa o local e as credenciais para logar no banco
-    function abrirBanco(){
+    function abrirBancoModelo(){
         $conexao = new mysqli("localhost","root","","banco");
         return $conexao;
     }
 
     //funcao que redireciona para a página inicial
-    function goToConsulta(){
+    function goToConsultaModelo(){
         header("location:modelo-consulta.php");
     }
     
     //funcao que insere modelo
     function inserirModelo(){
-        $banco = abrirBanco();
+        $banco = abrirBancoModelo();
         //declarando as variáveis usadas na inserção dos dados
-        $idMarca    = $_POST["idMarca"];
+        $nomeMarca  = $_POST["idMarca"];
         $nomeModelo = $_POST["nomeModelo"];
         //a consulta sql
         $sql = "INSERT INTO Modelos(idMarca, nomeModelo) VALUES ('$idMarca', '$nomeModelo')";
@@ -38,12 +38,12 @@
         $banco->query($sql);
         //fechando a conexao com o banco
         $banco->close();
-        goToConsulta();
+        goToConsultaModelo();
     }
 
     function selectTodos(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoModelo();
         //a consulta sql
         $sql = "SELECT * FROM Modelos ORDER BY nomeModelo";
         //executando a consulta
@@ -70,7 +70,7 @@
     //funcao que mostra as marcas já preenchido para a alteração
     function selectIdModelo($idModelo){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoModelo();
         //a consulta sql
         $sql = "SELECT * FROM Modelos WHERE idModelo ='$idModelo'";
         $resultado = $banco->query($sql);
@@ -82,7 +82,7 @@
     //funcao que altera uma única marca especifica
     function alterarModelo(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoModelo();
         
         //declarando as variáveis usadas no update
         $idModelo   = $_POST["idModelo"];
@@ -92,17 +92,17 @@
         $sql = "UPDATE Modelos SET nomeModelo='$nomeModelo' WHERE idModelo='$idModelo'";
         $banco->query($sql);
         $banco->close();
-        goToConsulta();
+        goToConsultaModelo();
     }
     function excluirModelo(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoModelo();
         //variável id que vai ser usada na consulta
         $idModelo = $_POST["idModelo"]; 
         //delete da marca específica 
         $sql = "DELETE FROM Modelos WHERE idModelo='$idModelo'";
         $banco->query($sql);
         $banco->close();
-        goToConsulta();
+        goToConsultaModelo();
     }
 ?>

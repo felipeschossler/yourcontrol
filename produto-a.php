@@ -53,8 +53,8 @@
                             <td><input type="text" name="serialProduto" value="<?=$Produtos["serialProduto"]?>" /></td>
                         </tr>
                         <tr>
-                            <td>Quantidade Produto</td>
-                            <td><input type="text" name="quantidadeProduto" value="<?=$Produtos["quantidadeProduto"]?>" /></td>
+                            <td>Data de Entrada</td>
+                            <td><input type="text" name="dataEntradaProduto" value="<?=$Produtos["dataEntradaProduto"]?>" /></td>
                         </tr>
                         <tr>
                             <td>

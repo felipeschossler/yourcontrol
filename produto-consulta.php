@@ -1,11 +1,11 @@
 <?php 
     include("produto-c.php");
     //pega por post o componente codigo do formulario -F.
-    @$idProduto         = $_POST['idProduto'];
-    @$nomeProduto       = $_POST['nomeProduto'];
-    @$idModelo          = $_POST['idModelo'];  //FK
-    @$serialProduto     = $_POST['serialProduto'];
-    @$quantidadeProduto = $_POST['quantidadeProduto'];
+    @$idProduto          = $_POST['idProduto'];
+    @$nomeProduto        = $_POST['nomeProduto'];
+    @$idModelo           = $_POST['idModelo'];  //FK
+    @$serialProduto      = $_POST['serialProduto'];
+    @$dataEntradaProduto = $_POST['dataEntradaProduto'];
     
     $grupo = selectTodosProdutos();
     //var_dump($grupo);
@@ -32,11 +32,11 @@
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th>ID Produto</th>
-                            <th>ID Modelo</th>
-                            <th>Nome Produto</th>
-                            <th>Serial Produto</th>
-                            <th>Quantidade Produto</th>
+                            <th>ID: </th>
+                            <th>Modelo: </th>
+                            <th>Nome: </th>
+                            <th>Serial: </th>
+                            <th>Data de Entrada: </th>
                             <th>Editar</th>
                             <th>Excluir</th>
                         </tr>
@@ -48,7 +48,7 @@
                                 <td><?=$Produtos["idModelo"]?></td>
                                 <td><?=$Produtos["nomeProduto"]?></td>
                                 <td><?=$Produtos["serialProduto"]?></td>
-                                <td><?=$Produtos["quantidadeProduto"]?></td>
+                                <td><?=$Produtos["dataEntradaProduto"]?></td>
                                 <td>
                                     <form nome="alterar" action="produto-a.php" method="POST">
                                         <input type="hidden" name="idProduto" value=<?=$Produtos["idProduto"]?> />

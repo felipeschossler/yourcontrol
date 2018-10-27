@@ -39,23 +39,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($grupo as $Modelos) { ?>
+                        <?php foreach ($grupoM as $Movs) { ?>
                             <tr>
-                                <td><?=$Modelos["idModelo"]?></td>
-                                <td><?=$Modelos["idMarca"]?></td>
-                                <td><?=$Modelos["nomeModelo"]?></td>
+                                <td><?=$Movs["idMov"]?></td>
+                                <td><?=$Movs["dataEnt"]?></td>
+                                <td><?=$Movs["idFuncionario"]?></td>
+                                <td><?=$Movs["idProduto"]?></td>
                                 <td>
-                                    <form nome="alterar" action="modelo-a.php" method="POST">
+                                    <form nome="#" action="#" method="POST">
                                         <input type="hidden" name="idModelo" value=<?=$Modelos["idModelo"]?> />
                                         <input type="submit" name="Editar" value="Editar" />
                                     </form>
-                                </td>
-                                <td>
-                                    <form name="excluir" action="modelo-c.php" method="POST">
-                                        <input type="hidden" name="idModelo" value=<?=$Modelos["idModelo"]?> />
-                                        <input type="submit" name="acao" value="Excluir" onclick="alert('Cadastro excluído com sucesso.');"/>
-                                    </form>    
-                                    
                                 </td>
                             </tr>   
 

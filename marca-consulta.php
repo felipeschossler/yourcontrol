@@ -1,6 +1,6 @@
 <?php 
     include("marca-c.php");
-    $grupo = selectTodos();
+    $grupo = selectTodasMarcas();
     //var_dump($grupo);
 ?>
 <html lang="pt-BR">

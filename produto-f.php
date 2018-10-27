@@ -49,8 +49,8 @@
                             <td><input type="text" name="serialProduto" value="" /></td>
                         </tr>
                         <tr>
-                            <td>Quantidade:</td>
-                            <td><input type="text" name="quantidadeProduto" value="" /></td>
+                            <td>Data de Entrada:</td>
+                            <td><input type="date" name="dataEntradaProduto" value="" /></td>
                         </tr>
                         <tr>
                             <td><input type="submit" name="acao" value="Enviar" onclick="alert('Cadastro efetuado com sucesso.');"/></td>
