@@ -20,7 +20,7 @@
         return $conexao;
     }
     //funcao que redireciona para a página inicial
-    function goToConsulta(){
+    function goToConsultaFuncao(){
         header("location:funcao-consulta.php");
     }
     //funcao que insere funcao
@@ -35,7 +35,7 @@
         $banco->query($sql);
         //fechando a conexao com o banco
         $banco->close();
-        goToConsulta();
+        goToConsultaFuncao();
     }
     function selectTodasFuncoes(){
         
@@ -87,7 +87,7 @@
         $sql = "UPDATE Funcoes SET nomeFuncao='$nomeFuncao' WHERE idFuncao='$idFuncao'";
         $banco->query($sql);
         $banco->close();
-        goToConsulta();
+        goToConsultaFuncao();
     }
     function excluirFuncao(){
         
@@ -98,6 +98,6 @@
         $sql = "DELETE FROM Funcoes WHERE idFuncao='$idFuncao'";
         $banco->query($sql);
         $banco->close();
-        goToConsulta();
+        goToConsultaFuncao();
     }
 ?>

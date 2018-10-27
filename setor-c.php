@@ -20,7 +20,7 @@
         return $conexao;
     }
     //funcao que redireciona para a página inicial
-    function goToConsulta(){
+    function goToConsultaSetor(){
         header("location:setor-consulta.php");
     }
     //funcao que insere setor
@@ -35,7 +35,7 @@
         $banco->query($sql);
         //fechando a conexao com o banco
         $banco->close();
-        goToConsulta();
+        goToConsultaSetor();
     }
     function selectTodosSetores(){
         
@@ -87,7 +87,7 @@
         $sql = "UPDATE Setores SET nomeSetor='$nomeSetor' WHERE idSetor='$idSetor'";
         $banco->query($sql);
         $banco->close();
-        goToConsulta();
+        goToConsultaSetor();
     }
     function excluirSetor(){
         
@@ -98,6 +98,6 @@
         $sql = "DELETE FROM Setores WHERE idSetor='$idSetor'";
         $banco->query($sql);
         $banco->close();
-        goToConsulta();
+        goToConsultaSetor();
     }
 ?>
