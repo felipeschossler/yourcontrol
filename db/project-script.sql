@@ -30,7 +30,6 @@ CREATE TABLE Produtos
     idProduto INT NOT NULL AUTO_INCREMENT , 
     nomeProduto VARCHAR(30) NOT NULL ,
     serialProduto VARCHAR(50) NOT NULL ,
-    quantidadeProduto INT(5) NOT NULL ,
     dataEntradaProduto DATE NOT NULL,
     PRIMARY KEY (idProduto) , 
     CONSTRAINT fk_ModeloProduto FOREIGN KEY (idModelo) REFERENCES Modelos (idModelo) 

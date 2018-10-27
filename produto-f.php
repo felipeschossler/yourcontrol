@@ -1,7 +1,7 @@
 <?php 
-    //Modelo
+    //Modelos
     include("modelo-c.php");
-    $grupo = selectTodos();
+    $grupoModelo = selectTodosModelos();
 ?>
 <html lang="pt-BR">
 <head>
@@ -26,7 +26,7 @@
                 <table class="table">
                     <tbody>
                         <tr>
-                            <td>Código Produto</td>
+                            <td>Código Produto</td>    
                             <td><input type="text" name="idProduto" value="" disabled="true" /></td>
                         </tr> 
                         <tr>
@@ -34,7 +34,7 @@
                             <td>
                                 <select name="idModelo">
                                     <?php
-                                        foreach ($grupo as $Modelos)
+                                        foreach ($grupoModelo as $Modelos)
                                         echo '<option name=" '.$Modelos['idModelo'].' " value=" ' . $Modelos['idModelo'] . '"> ' . $Modelos['nomeModelo'] . ' </option>';
                                     ?>
                                 </select> 

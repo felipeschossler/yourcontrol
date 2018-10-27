@@ -1,7 +1,7 @@
 <?php 
     //Marca
     include("marca-c.php");
-    $grupo = selectTodos();
+    $grupoMarca = selectTodos();
 ?>
 <html lang="pt-BR">
 <head>
@@ -38,7 +38,7 @@
                             <td>
                                 <select name="idMarca">
                                     <?php
-                                        foreach ($grupo as $Marcas)
+                                        foreach ($grupoMarca as $Marcas)
                                         echo '<option name=" '.$Marcas['idMarca'].' " value=" ' . $Marcas['idMarca'] . '"> ' . $Marcas['nomeMarca'] . ' </option>';
                                     ?>
                                 </select> 

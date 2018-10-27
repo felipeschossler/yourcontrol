@@ -1,7 +1,7 @@
 <?php 
     include("marca-c.php");
-    $grupo = selectTodasMarcas();
-    //var_dump($grupo);
+    $grupoMarca = selectTodos();
+    //var_dump($grupoMarca);
 ?>
 <html lang="pt-BR">
 <head>
@@ -33,7 +33,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($grupo as $Marcas) { ?>
+                        <?php foreach ($grupoMarca as $Marcas) { ?>
                             <tr>
                                 <td><?=$Marcas["idMarca"]?></td>
                                 <td><?=$Marcas["nomeMarca"]?></td>

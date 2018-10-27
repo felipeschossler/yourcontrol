@@ -5,7 +5,7 @@
     //Modelo
     include("modelo-c.php");
     $Modelos = selectIdModelo($_POST["idModelo"]);
-    $grupo = selectTodos();
+    $grupoModelo = selectTodosModelos();
 ?>
 <html lang="pt-BR">
 <head>
@@ -38,7 +38,7 @@
                             <td>
                                 <select name="idModelo">
                                     <?php
-                                        foreach ($grupo as $Modelos)
+                                        foreach ($grupoModelo as $Modelos)
                                         echo '<option name=" '.$Modelos['idModelo'].' " value=" ' . $Modelos['idModelo'] . '"> ' . $Modelos['nomeModelo'] . ' </option>';
                                     ?>
                                 </select> 

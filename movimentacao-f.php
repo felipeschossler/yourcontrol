@@ -30,11 +30,11 @@
                 <table class="table">
                     <tbody>
                         <tr>
-                            <td>Código Movimentação</td>
+                            <td>Código</td>
                             <td><input type="text" name="idMov" value="" disabled="true" /></td>
                         </tr> 
                         <tr>
-                            <td>Data Entrada:</td>
+                            <td>Data de Saída: </td>
                             <td><input type="date" name="dataEnt" value="" /></td>
                         </tr>
                         <tr>

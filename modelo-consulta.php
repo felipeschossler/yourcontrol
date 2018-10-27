@@ -1,9 +1,9 @@
 <?php 
     include("modelo-c.php");
     //pega por post o componente codigo do formulario -F.
-    @$idModelo 	          = $_POST['idModelo'];
-    @$nomeModelo         = $_POST['nomeModelo'];
-    @$nomeMarca         = $_POST['nomeMarca'];  //FK
+    @$idModelo 	 = $_POST['idModelo'];
+    @$nomeModelo = $_POST['nomeModelo'];
+    @$idMarca    = $_POST['idMarca'];  //FK
     
     $grupo = selectTodosModelos();
     //var_dump($grupo);

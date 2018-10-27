@@ -100,7 +100,7 @@
         $dataEntradaProduto = $_POST["dataEntradaProduto"];
 
         //update no usuario especifico no qual já deve existir a informação
-        $sql = "UPDATE Produtos SET idModelo='$idModelo', nomeProduto='$nomeProduto', serialProduto='$serialProduto', quantidadeProduto='$quantidadeProduto' WHERE idProduto='$idProduto'";
+        $sql = "UPDATE Produtos SET idModelo='$idModelo', nomeProduto='$nomeProduto', serialProduto='$serialProduto', dataEntradaProduto='$dataEntradaProduto' WHERE idProduto='$idProduto'";
         $banco->query($sql);
         $banco->close();
         goToConsultaProd();

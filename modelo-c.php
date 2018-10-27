@@ -29,7 +29,7 @@
     function inserirModelo(){
         $banco = abrirBancoModelo();
         //declarando as variáveis usadas na inserção dos dados
-        $nomeMarca  = $_POST["idMarca"];
+        $idMarca  = $_POST["idMarca"];
         $nomeModelo = $_POST["nomeModelo"];
         //a consulta sql
         $sql = "INSERT INTO Modelos(idMarca, nomeModelo) VALUES ('$idMarca', '$nomeModelo')";
@@ -38,10 +38,10 @@
         $banco->query($sql);
         //fechando a conexao com o banco
         $banco->close();
-        goToConsultaModelo();
+        //goToConsultaModelo();
     }
 
-    function selectTodos(){
+    function selectTodosModelos(){
         
         $banco = abrirBancoModelo();
         //a consulta sql
