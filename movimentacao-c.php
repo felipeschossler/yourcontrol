@@ -5,13 +5,6 @@
         if ($_POST["acao"] == "Enviar"){
             inserirMov();
         }
-        if ($_POST["acao"] == "Alterar"){
-            alterarMov();
-        }
-        if ($_POST["acao"] == "Excluir"){
-            excluirMov();
-        }
-        
     }
     
     //funcao que passa o local e as credenciais para logar no banco
@@ -29,12 +22,13 @@
     function inserirMov(){
         $banco = abrirBanco();
         //declarando as variáveis usadas na inserção dos dados
-        $idFuncionario = $_POST["idFuncionario"];
-        $idProduto     = $_POST["idProduto"];
-        $dataEnt       = $_POST["dataEnt"];
+        $idFuncionario         = $_POST["idFuncionario"];
+        $idProduto             = $_POST["idProduto"];
+        $dataSaidaMovimentacao = $_POST["dataSaidaMovimentacao"];
+        $statusMovimentacao    = $_POST["statusMovimentacao"];
 
         //a consulta sql
-        $sql = "INSERT INTO Movimentacoes(idFuncionario, idProduto, dataEnt) VALUES ('$idFuncionario', '$idProduto', '$dataEnt')";
+        $sql = "INSERT INTO Movimentacoes(idFuncionario, idProduto, dataSaidaMovimentacao, statusMovimentacao) VALUES ('$idFuncionario', '$idProduto', '$dataSaidaMovimentacao' , '1')";
         
         //executando a inclusão
         $banco->query($sql);
@@ -47,7 +41,7 @@
         
         $banco = abrirBanco();
         //a consulta sql
-        $sql = "SELECT * FROM Movimentacoes ORDER BY dataEnt";
+        $sql = "SELECT * FROM Movimentacoes ORDER BY dataSaidaMovimentacao";
         //executando a consulta
         $resultado = $banco->query($sql);
         //mostra um alert se não tiver nem um dado na table
@@ -70,33 +64,15 @@
         }
     }
     //funcao que mostra as movs já preenchido para a alteração
-    function selectIdMov($idMov){
+    function selectIdMov($idMovimentacao){
         
         $banco = abrirBanco();
         //a consulta sql
-        $sql = "SELECT * FROM Movimentacoes WHERE idMov ='$idMov'";
+        $sql = "SELECT * FROM Movimentacoes WHERE idMovimentacao ='$idMovimentacao'";
         $resultado = $banco->query($sql);
         $banco->close();
         $Movs = mysqli_fetch_assoc($resultado);
         return $Movs;
-    }
-    
-    //funcao que altera uma única marca especifica
-    function alterarMov(){
-        
-        $banco = abrirBanco();
-        
-        //declarando as variáveis usadas no update
-        $idMov         = $_POST["idMov"];
-        $idFuncionario = $_POST["idFuncionario"];
-        $idProduto     = $_POST["idProduto"];
-        $dataEnt       = $_POST["dataEnt"];
-
-        //update na mov especifica no qual já deve existir a informação
-        $sql = "UPDATE Movimentacoes SET idFuncionario='$idFuncionario', idProduto='$idProduto', dataEnt='$dataEnt' WHERE idMov='$idMov'";
-        $banco->query($sql);
-        $banco->close();
-        goToConsulta();
     }
     
 ?>

@@ -31,11 +31,7 @@
                     <tbody>
                         <tr>
                             <td>Código</td>
-                            <td><input type="text" name="idMov" value="" disabled="true" /></td>
-                        </tr> 
-                        <tr>
-                            <td>Data de Saída: </td>
-                            <td><input type="date" name="dataEnt" value="" /></td>
+                            <td><input type="text" name="idMovimentacao" value="" disabled="true" /></td>
                         </tr>
                         <tr>
                             <td>Funcionário</td>
@@ -59,6 +55,10 @@
                                     ?>
                                 </select> 
                             </td>
+                        </tr> 
+                        <tr>
+                            <td>Data de Saída: </td>
+                            <td><input type="date" name="dataSaidaMovimentacao" value="" /></td>
                         </tr>
                         <tr>
                             <td><input type="submit" name="acao" value="Enviar" onclick="alert('Cadastro efetuado com sucesso.');"/></td>

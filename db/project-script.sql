@@ -44,6 +44,9 @@ CREATE TABLE Funcoes
     PRIMARY KEY (idFuncao)
 );
 
+/*tabela itens*/
+
+
 /*tabela Setores*/
 
 CREATE TABLE Setores
@@ -67,11 +70,13 @@ CREATE TABLE Funcionarios
     CONSTRAINT fk_SetorFuncionario FOREIGN KEY (idSetor) REFERENCES Setores (idSetor)
 );
 
+/*tabela Movimentções*/
+
 CREATE TABLE Movimentacoes
 ( 
     idMovimentacao INT NOT NULL AUTO_INCREMENT ,
     dataSaidaMovimentacao DATE NOT NULL ,
-    dataEntradaMovimentacao DATE NOT NULL ,
+    statusMovimentacao BOOLEAN NOT NULL ,
     idFuncionario INT NOT NULL ,
     idProduto INT NOT NULL ,
     PRIMARY KEY (idMovimentacao) ,

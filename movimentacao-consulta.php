@@ -1,10 +1,11 @@
 <?php 
     include("movimentacao-c.php");
     //pega por post o componente codigo do formulario -F.
-    @$idMov	          = $_POST['idModelo'];
-    @$dataEnt         = $_POST['dataEnt'];
-    @$nomeFuncionario = $_POST['nomeFuncionario'];  //FK
-    @$nomeProduto     = $_POST['nomeProduto'];  //FK
+    @$idMovimentacao	    = $_POST['idMovimentacao'];
+    @$dataSaidaMovimentacao = $_POST['dataSaidaMovimentacao'];
+    @$nomeFuncionario       = $_POST['nomeFuncionario'];  //FK
+    @$nomeProduto           = $_POST['nomeProduto'];  //FK
+    @$statusMovimentacao    = $_POST['statusMovimentacao'];
     
     $grupoM = selectTodosMovs();
     //var_dump($grupo);
@@ -31,35 +32,27 @@
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th>ID Mov</th>
-                            <th>Data Entrada</th>
+                            <th>ID</th>
+                            <th>Data Saida</th>
                             <th>Nome Funcionario</th>
                             <th>Nome Produto</th>
-                            <th>Action</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($grupoM as $Movs) { ?>
                             <tr>
-                                <td><?=$Movs["idMov"]?></td>
-                                <td><?=$Movs["dataEnt"]?></td>
+                                <td><?=$Movs["idMovimentacao"]?></td>
+                                <td><?=$Movs["dataSaidaMovimentacao"]?></td>
                                 <td><?=$Movs["idFuncionario"]?></td>
                                 <td><?=$Movs["idProduto"]?></td>
-                                <td>
-                                    <form nome="#" action="#" method="POST">
-                                        <input type="hidden" name="idModelo" value=<?=$Modelos["idModelo"]?> />
-                                        <input type="submit" name="Editar" value="Editar" />
-                                    </form>
-                                </td>
-                            </tr>   
-
+                                <td><?=$Movs["statusMovimentacao"]?></td>
+                            </tr>
                         <?php } ?>
-
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
 </body>
 </html>
