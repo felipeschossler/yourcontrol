@@ -10,12 +10,14 @@
     </head>
 
     <body class="text-center">
-        <form class="form-signin">
+        <form method="POST" action="login_cadastro-c.php" class="form-signin">
             <img class="mb-4" src="./img/y-image.png" alt="Your Control icon" width="72" height="72">
-            <h1 class="h3 mb-3 font-weight-normal">Por favor faça o login</h1>
-            <input type="text" id="codigoUsuario" class="form-control" placeholder="Código do usuário" required autofocus>
-            <input type="password" id="senhaUsuario" class="form-control" placeholder="Senha" required>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+            <h1 class="h3 mb-3 font-weight-normal">Por favor faça o Login ou Cadastre-se</h1>
+            <input type="text" id="idUsuario" name="idUsuario" class="form-control" placeholder="ID do usuário" required autofocus>
+            <input type="password" id="senhaUsuario" name="senhaUsuario" class="form-control" placeholder="Senha" required>
+            
+            <button type="submit" id="entrar" name="acao" value="entrar" class="btn btn-lg btn-primary btn-block" >Entrar</button>
+            <button type="submit" id="cadastrar" name="acao" value="cadastrar" class="btn btn-lg btn-primary btn-block">Cadastrar</button>
             <p class="mt-5 mb-3 text-muted">YourControl&copy; - 2018</p>
         </form>
     </body>

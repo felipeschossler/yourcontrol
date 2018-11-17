@@ -57,10 +57,9 @@
                     </div>
                 </li>
             </ul>
-            <!--link of brand-->
-            <a class="navbar-brand" href="#possivelpaginainstitucional">
-                <img src="img/y-image.png" width="30" height="30" class="d-inline-block align-top" alt="Logo YourControl">
-                YourControl
+            <!--sair-->
+            <a class="btn btn-secondary" href="logout.php">
+                Sair
             </a>
         </div>
     </nav>
