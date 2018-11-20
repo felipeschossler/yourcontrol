@@ -31,6 +31,7 @@ CREATE TABLE Produtos
     nomeProduto VARCHAR(30) NOT NULL ,
     serialProduto VARCHAR(50) NOT NULL ,
     dataEntradaProduto DATE NOT NULL,
+    statusProduto BOOLEAN NOT NULL ,
     PRIMARY KEY (idProduto) , 
     CONSTRAINT fk_ModeloProduto FOREIGN KEY (idModelo) REFERENCES Modelos (idModelo) 
 );
@@ -70,16 +71,26 @@ CREATE TABLE Funcionarios
     CONSTRAINT fk_SetorFuncionario FOREIGN KEY (idSetor) REFERENCES Setores (idSetor)
 );
 
-/*tabela Movimentções*/
+/*tabela Movimentações*/
 
 CREATE TABLE Movimentacoes
 ( 
     idMovimentacao INT NOT NULL AUTO_INCREMENT ,
     dataSaidaMovimentacao DATE NOT NULL ,
-    statusMovimentacao BOOLEAN NOT NULL ,
     idFuncionario INT NOT NULL ,
     idProduto INT NOT NULL ,
+    statusMovimentacao BOOLEAN NOT NULL ,
     PRIMARY KEY (idMovimentacao) ,
     CONSTRAINT fk_FuncionarioMovimentacao FOREIGN KEY (idFuncionario) REFERENCES Funcionarios (idFuncionario) ,
     CONSTRAINT fk_ProdutoMovimentacao FOREIGN KEY (idProduto) REFERENCES Produtos (idProduto)
+);
+
+/*tabela Devolucao*/
+CREATE TABLE MovimentacoesDev
+( 
+    idMovimentacaoDev INT NOT NULL AUTO_INCREMENT ,
+    dataEntradaMovimentacao DATE NOT NULL ,
+    idMovimentacao INT NOT NULL ,
+    PRIMARY KEY (idMovimentacaoDev) ,
+    CONSTRAINT fk_MovimentacaoDevolucao FOREIGN KEY (idMovimentacao) REFERENCES Movimentacoes (idMovimentacao)
 );

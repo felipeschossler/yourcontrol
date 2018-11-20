@@ -53,7 +53,8 @@
                         <a class="dropdown-item" href="movimentacao-f.php">Emprestimo</a>
                         <a class="dropdown-item" href="movimentacaoDev-f.php">Devolução</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="movimentacao-consulta.php">Consultar Movimentação</a>
+                        <a class="dropdown-item" href="movimentacao-consulta.php">Consultar Emprestimo</a>
+                        <a class="dropdown-item" href="movimentacaoDev-consulta.php">Consultar Devolução</a>
                     </div>
                 </li>
             </ul>

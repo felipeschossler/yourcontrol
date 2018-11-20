@@ -1,7 +1,7 @@
 <?php 
     //Produto
     include("produto-c.php");
-    $grupoP = selectTodosProdutos();
+    $grupoFalse = produtoFalse();
 
     //Funcionarios
     include("funcionario-c.php");
@@ -26,7 +26,7 @@
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <form name="Movimentacoes" action="movimentacao-c.php" method="POST">
-                <h3>Cadastro de Movimentações</h3>
+                <h3>Emprestimo</h3>
                 <table class="table">
                     <tbody>
                         <tr>
@@ -50,8 +50,9 @@
                             <td>
                                 <select name="idProduto">
                                     <?php
-                                        foreach ($grupoP as $Produtos)
-                                        echo '<option name=" '.$Produtos['idProduto'].' " value=" ' . $Produtos['idProduto'] . '"> ' . $Produtos['nomeProduto'] . ' </option>';
+                                        foreach ($grupoFalse as $Produtos){
+                                            echo '<option name=" '.$Produtos['idProduto'].' " value=" ' . $Produtos['idProduto'] . '"> ' . $Produtos['nomeProduto'] . ' </option>';
+                                        }
                                     ?>
                                 </select> 
                             </td>

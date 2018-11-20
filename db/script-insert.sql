@@ -37,4 +37,4 @@ INSERT INTO Funcionarios (idFuncao, idSetor, nomeFuncionario, cpfFuncionario) VA
 INSERT INTO Funcionarios (idFuncao, idSetor, nomeFuncionario, cpfFuncionario) VALUES ('2','1','ROZANE ALMEIDA','7665432189');
 INSERT INTO Funcionarios (idFuncao, idSetor, nomeFuncionario, cpfFuncionario) VALUES ('3','2','RAFAEL ALBERTO SOUZA','90874765431');
 INSERT INTO Funcionarios (idFuncao, idSetor, nomeFuncionario, cpfFuncionario) VALUES ('3','3','BRUNO DUARTE','33248979801');
-INSERT INTO Funcionarios (idFuncao, idSetor, nomeFuncionario, cpfFuncionario) VALUES ('1','1','CARLOS MUNIZ SCHUMACHER','77658436291');
+INSERT INTO Funcionarios (idFuncao, idSetor, nomeFuncionario, cpfFuncionario) VALUES ('1','1','ANDERSON MUNIZ','77658436291');

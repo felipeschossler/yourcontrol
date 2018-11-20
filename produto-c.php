@@ -29,21 +29,25 @@
     function inserirProduto(){
         $banco = abrirBancoProduto();
         //declarando as variáveis usadas na inserção dos dados
-        $idModelo          = $_POST['idModelo'];  //FK
-        $nomeProduto       = $_POST['nomeProduto'];
-        $serialProduto     = $_POST['serialProduto'];
+        $idModelo           = $_POST['idModelo'];  //FK
+        $nomeProduto        = $_POST['nomeProduto'];
+        $serialProduto      = $_POST['serialProduto'];
         $dataEntradaProduto = $_POST['dataEntradaProduto'];
+        $statusProduto      = $_POST['statusProduto'];
+        
         //a consulta sql
         $sql = "INSERT INTO Produtos(
                     idModelo,
                     nomeProduto,
                     serialProduto,
-                    dataEntradaProduto) 
+                    dataEntradaProduto,
+                    statusProduto) 
                 VALUES (
                     '$idModelo',
                     '$nomeProduto',
                     '$serialProduto',
-                    '$dataEntradaProduto')";
+                    '$dataEntradaProduto',
+                    '0')";
         
         //executando a inclusão
         $banco->query($sql);
@@ -117,4 +121,28 @@
         $banco->close();
         goToConsultaProd();
         }
+
+    function produtoFalse(){
+        $banco = abrirBancoProduto();
+        //a consulta sql
+        $sql = "SELECT * FROM Produtos WHERE statusProduto='0'";
+        //executando a consulta
+        $resultado = $banco->query($sql);
+        //mostra todos os usuários dentro do array
+        if($resultado->num_rows === 0){
+            ?>
+                <script type="text/javascript">
+                alert("Nenhum produto foi cadastrado.");
+                window.location.href = "index.php";
+                </script>
+            <?php
+        }else{
+            while ($row = mysqli_fetch_array($resultado)){
+                $grupo [] = $row;
+            }
+            $banco->close();
+            return $grupo;
+        }
+    }
+
 ?>

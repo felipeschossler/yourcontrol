@@ -1,17 +1,16 @@
 <?php 
-    include("movimentacao-c.php");
+    include("movimentacaoDev-c.php");
     //pega por post o componente codigo do formulario -F.
-    @$idMovimentacao	    = $_POST['idMovimentacao'];
-    @$dataSaidaMovimentacao = $_POST['dataSaidaMovimentacao'];
-    @$nomeFuncionario       = $_POST['nomeFuncionario'];  //FK
-    @$nomeProduto           = $_POST['nomeProduto'];  //FK
+    @$idMovimentacaoDev	    = $_POST['idMovimentacaoDev'];
+    @$idMovimentacao	    = $_POST['idMovimentacao']; //FK
+    @$dataEntradaMovimentacao = $_POST['dataEntradaMovimentacao'];
     
-    $grupoM = selectTodosMovs();
+    $grupoD = selectTodosMovsDev();
     //var_dump($grupo);
 ?>
 <html lang="pt-BR">
 <head>
-    <title>Consulta - Movimentação</title>
+    <title>Consulta - Devolução</title>
     <?php
         include("tmpl/head.php");
     ?>
@@ -27,23 +26,21 @@
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
         <div class="form">  
-            <h3>Consulta de Movimentação</h3>
+            <h3>Consulta de Devolução</h3>
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
                             <th>ID</th>
-                            <th>Data Saida</th>
-                            <th>Nome Funcionario</th>
-                            <th>Nome Produto</th>
+                            <th>Data Entrada</th>
+                            <th>ID Emprestimo</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($grupoM as $Movs) { ?>
+                        <?php foreach ($grupoD as $Devs) { ?>
                             <tr>
-                                <td><?=$Movs["idMovimentacao"]?></td>
-                                <td><?=$Movs["dataSaidaMovimentacao"]?></td>
-                                <td><?=$Movs["idFuncionario"]?></td>
-                                <td><?=$Movs["idProduto"]?></td>
+                                <td><?=$Devs["idMovimentacaoDev"]?></td>
+                                <td><?=$Devs["dataEntradaMovimentacao"]?></td>
+                                <td><?=$Devs["idMovimentacao"]?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
