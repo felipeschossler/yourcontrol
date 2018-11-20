@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(empty($_SESSION)){
+        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
+    }
+?>
+
 <html lang="pt-BR">
     <head>
     <title>Cadastrar - Função</title>

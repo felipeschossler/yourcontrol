@@ -2,6 +2,14 @@
 
 CREATE DATABASE banco CHARACTER SET utf8 COLLATE utf8_general_ci;
 
+CREATE TABLE Usuarios
+(
+    idUsuario INT NOT NULL AUTO_INCREMENT ,
+    nomeUsuario VARCHAR(40) NOT NULL ,
+    senhaUsuario VARCHAR(40) NOT NULL ,
+    PRIMARY KEY (idUsuario)
+);
+
 /*tabela Marcas*/
 
 CREATE TABLE Marcas 
