@@ -28,9 +28,7 @@
         //a consulta sql
         $sql = "INSERT INTO MovimentacoesDev(dataEntradaMovimentacao, idMovimentacao) VALUES ('$dataEntradaMovimentacao', '$idMovimentacao')";
         $update = "UPDATE Movimentacoes SET statusMovimentacao='0' WHERE (idMovimentacao='$idMovimentacao')";
-        $update2 = "UPDATE Produtos SET statusProduto='0' WHERE (SELECT idProduto FROM Movimentacoes WHERE (SELECT idMovimentacao FROM MovimentacoesDev WHERE idMovimentacaoDev='$idMovimentacaoDev'))";
-        //echo "$sql";
-        echo "$idProduto";
+        $update2 = "UPDATE Produtos SET statusProduto='0' WHERE (SELECT idProduto FROM Movimentacoes WHERE idMovimentacao='$idMovimentacao')";
         
         //executando a inclusão
         $banco->query($sql);
@@ -38,7 +36,7 @@
         $banco->query($update2);
         //fechando a conexao com o banco
         $banco->close();
-        //goToConsultaDev();
+        goToConsultaDev();
     }
 
     //DEVOLUÇÃO

@@ -24,7 +24,7 @@ INSERT INTO Funcoes (nomeFuncao) VALUES ('INFRA');
 INSERT INTO Funcoes (nomeFuncao) VALUES ('RH');
 INSERT INTO Funcoes (nomeFuncao) VALUES ('DESENVOLVIMENTO');
 INSERT INTO Funcoes (nomeFuncao) VALUES ('CONTABILIDADE');
-INSERT INTO Funcoes (nomeFuncao) VALUES ('GERÊNCIA');
+INSERT INTO Funcoes (nomeFuncao) VALUES ('GERENCIA');
 
 /*tabela Setores*/
 INSERT INTO Setores (nomeSetor) VALUES ('SALA 404');
@@ -38,3 +38,6 @@ INSERT INTO Funcionarios (idFuncao, idSetor, nomeFuncionario, cpfFuncionario) VA
 INSERT INTO Funcionarios (idFuncao, idSetor, nomeFuncionario, cpfFuncionario) VALUES ('3','2','RAFAEL ALBERTO SOUZA','90874765431');
 INSERT INTO Funcionarios (idFuncao, idSetor, nomeFuncionario, cpfFuncionario) VALUES ('3','3','BRUNO DUARTE','33248979801');
 INSERT INTO Funcionarios (idFuncao, idSetor, nomeFuncionario, cpfFuncionario) VALUES ('1','1','ANDERSON MUNIZ','77658436291');
+
+/*tabela Setores*/
+INSERT INTO Usuarios (nomeUsuario, senhaUsuario) VALUES ('admin', 'admin');
