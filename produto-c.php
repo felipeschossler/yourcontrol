@@ -21,35 +21,39 @@
     }
 
     //funcao que redireciona para a página inicial
-    function goConsulta(){
-        header("location:index.php");
+    function goToConsultaProd(){
+        header("location:produto-consulta.php");
     }
 
     //funcao que insere produto
     function inserirProduto(){
         $banco = abrirBancoProduto();
         //declarando as variáveis usadas na inserção dos dados
-        $idModelo          = $_POST['idModelo'];  //FK
-        $nomeProduto       = $_POST['nomeProduto'];
-        $serialProduto     = $_POST['serialProduto'];
-        $quantidadeProduto = $_POST['quantidadeProduto'];
+        $idModelo           = $_POST['idModelo'];  //FK
+        $nomeProduto        = $_POST['nomeProduto'];
+        $serialProduto      = $_POST['serialProduto'];
+        $dataEntradaProduto = $_POST['dataEntradaProduto'];
+        $statusProduto      = $_POST['statusProduto'];
+        
         //a consulta sql
         $sql = "INSERT INTO Produtos(
                     idModelo,
                     nomeProduto,
                     serialProduto,
-                    quantidadeProduto) 
+                    dataEntradaProduto,
+                    statusProduto) 
                 VALUES (
                     '$idModelo',
                     '$nomeProduto',
                     '$serialProduto',
-                    '$quantidadeProduto')";
+                    '$dataEntradaProduto',
+                    '0')";
         
         //executando a inclusão
         $banco->query($sql);
         //fechando a conexao com o banco
         $banco->close();
-        goConsulta();
+        goToConsultaProd();
     }
 
     function selectTodosProdutos(){
@@ -93,17 +97,17 @@
         $banco = abrirBancoProduto();
         
         //declarando as variáveis usadas no update
-        $idProduto     = $_POST["idProduto"];
-        $idModelo      = $_POST["idModelo"];
-        $nomeProduto   = $_POST["nomeProduto"];
-        $serialProduto = $_POST["serialProduto"];
-        $quantidadeProduto = $_POST["quantidadeProduto"];
+        $idProduto          = $_POST["idProduto"];
+        $idModelo           = $_POST["idModelo"];
+        $nomeProduto        = $_POST["nomeProduto"];
+        $serialProduto      = $_POST["serialProduto"];
+        $dataEntradaProduto = $_POST["dataEntradaProduto"];
 
         //update no usuario especifico no qual já deve existir a informação
-        $sql = "UPDATE Produtos SET idModelo='$idModelo', nomeProduto='$nomeProduto', serialProduto='$serialProduto', quantidadeProduto='$quantidadeProduto' WHERE idProduto='$idProduto'";
+        $sql = "UPDATE Produtos SET idModelo='$idModelo', nomeProduto='$nomeProduto', serialProduto='$serialProduto', dataEntradaProduto='$dataEntradaProduto' WHERE idProduto='$idProduto'";
         $banco->query($sql);
         $banco->close();
-        goConsulta();
+        goToConsultaProd();
     }
 
     function excluirProduto(){
@@ -115,6 +119,30 @@
         $sql = "DELETE FROM Produtos WHERE idProduto='$idProduto'";
         $banco->query($sql);
         $banco->close();
-        goConsulta();
+        goToConsultaProd();
         }
+
+    function produtoFalse(){
+        $banco = abrirBancoProduto();
+        //a consulta sql
+        $sql = "SELECT * FROM Produtos WHERE statusProduto='0'";
+        //executando a consulta
+        $resultado = $banco->query($sql);
+        //mostra todos os usuários dentro do array
+        if($resultado->num_rows === 0){
+            ?>
+                <script type="text/javascript">
+                alert("Nenhum produto foi cadastrado.");
+                window.location.href = "index.php";
+                </script>
+            <?php
+        }else{
+            while ($row = mysqli_fetch_array($resultado)){
+                $grupo [] = $row;
+            }
+            $banco->close();
+            return $grupo;
+        }
+    }
+
 ?>

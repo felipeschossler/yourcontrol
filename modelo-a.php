@@ -1,6 +1,18 @@
+<?php
+    session_start();
+    if(empty($_SESSION)){
+        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
+    }
+?>
+
 <?php 
-include("modelo-c.php"); 
-$Modelos = selectIdModelo($_POST["idModelo"]);
+    include("modelo-c.php"); 
+    $Modelos = selectIdModelo($_POST["idModelo"]);
+
+    //Marca
+    include("marca-c.php");
+    //$marcas = selectIdMarca($_POST["idMarca"]);
+    $grupoMarca = selectTodos();
 ?>
 <html lang="pt-BR">
 <head>
@@ -21,15 +33,27 @@ $Modelos = selectIdModelo($_POST["idModelo"]);
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <form name="dadosModelo" action="modelo-c.php" method="POST">
-                <table border="1">
+                <h3>Alterar - Modelo</h3>
+                <table class="table">
                     <tbody>
                         <tr>
-                            <td>Código Modelo:</td>
+                            <td>ID: </td>
                             <td><input type="text" name="idModelo" value="<?=$Modelos["idModelo"]?>" size="20" disabled="true" /></td>
-                        </tr>   
+                        </tr> 
+                        <tr>
+                            <td>Marca: </td>
+                            <td>
+                                <select name="idMarca">
+                                    <?php
+                                        foreach ($grupoMarca as $Marcas)
+                                        echo '<option name=" '.$Marcas['idMarca'].' " value=" ' . $Marcas['idMarca'] . '"> ' . $Marcas['nomeMarca'] . ' </option>';
+                                    ?>
+                                </select> 
+                            </td>
+                        </tr> 
                         <tr>
                             <td>Nome:</td>
-                            <td><input type="text" name="nomeModelo" value="<?=$Modelos["nomeModelo"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeModelo" value="<?=$Modelos["nomeModelo"]?>" /></td>
                         </tr>
                         <tr>
                             <td>

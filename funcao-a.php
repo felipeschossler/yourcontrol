@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(empty($_SESSION)){
+        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
+    }
+?>
+
 <?php 
     include("funcao-c.php"); 
     $funcoes = selectIdFuncao($_POST["idFuncao"]);
@@ -21,7 +28,8 @@
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <form name="dadosFuncao" action="funcao-c.php" method="POST">
-                <table border="1">
+                <h3>Alterar - Função</h3>
+                <table class="table">
                     <tbody>
                         <tr>
                             <td>Código Função:</td>
@@ -29,7 +37,7 @@
                         </tr>   
                         <tr>
                             <td>Nome:</td>
-                            <td><input type="text" name="nomeFuncao" value="<?=$funcoes["nomeFuncao"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeFuncao" value="<?=$funcoes["nomeFuncao"]?>" /></td>
                         </tr>
                         <tr>
                             <td>

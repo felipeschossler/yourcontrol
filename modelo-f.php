@@ -1,7 +1,14 @@
+<?php
+    session_start();
+    if(empty($_SESSION)){
+        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
+    }
+?>
+
 <?php 
     //Marca
     include("marca-c.php");
-    $grupo = selectTodos();
+    $grupoMarca = selectTodos();
 ?>
 <html lang="pt-BR">
 <head>
@@ -23,7 +30,7 @@
         <div class="row h-100 justify-content-center align-items-center">
             <form name="Modelos" action="modelo-c.php" method="POST">
                 <h3>Cadastro de Modelo</h3>
-                <table border="1">
+                <table class="table">
                     <tbody>
                         <tr>
                             <td>Código Modelo</td>
@@ -31,14 +38,14 @@
                         </tr> 
                         <tr>
                             <td>Modelo:</td>
-                            <td><input type="text" name="nomeModelo" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeModelo" value="" /></td>
                         </tr>
                         <tr>
                             <td>Marca</td>
                             <td>
                                 <select name="idMarca">
                                     <?php
-                                        foreach ($grupo as $Marcas)
+                                        foreach ($grupoMarca as $Marcas)
                                         echo '<option name=" '.$Marcas['idMarca'].' " value=" ' . $Marcas['idMarca'] . '"> ' . $Marcas['nomeMarca'] . ' </option>';
                                     ?>
                                 </select> 

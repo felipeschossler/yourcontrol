@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(empty($_SESSION)){
+        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
+    }
+?>
+
 <html lang="pt-BR">
     <head>
     <title>Cadastrar - Setor</title>
@@ -19,7 +26,7 @@
                 <!--form-->
                 <form name="dadosSetor" action="setor-c.php" method="POST">
                     <h3>Cadastro de Setor</h3>
-                    <table class="" border="1">
+                    <table class="table">
                         <tbody>
                             <tr>
                                 <td>Código Setor:</td>
@@ -27,7 +34,7 @@
                             </tr>   
                             <tr>
                                 <td>Setor:</td>
-                                <td><input type="text" name="nomeSetor" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                                <td><input type="text" name="nomeSetor" value="" /></td>
                             </tr>
                             <tr>
                                 <td><input type="submit" name="acao" value="Enviar" onclick="alert('Cadastro efetuado com sucesso.');"></td>

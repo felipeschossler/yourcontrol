@@ -15,17 +15,17 @@
     }
     
     //funcao que passa o local e as credenciais para logar no banco
-    function abrirBanco(){
+    function abrirBancoMarca(){
         $conexao = new mysqli("localhost","root","","banco");
         return $conexao;
     }
     //funcao que redireciona para a página inicial
-    function voltarIndex(){
-        header("location:index.php");
+    function goToConsultaMarca(){
+        header("location:marca-consulta.php");
     }
     //funcao que insere marca
     function inserirMarca(){
-        $banco = abrirBanco();
+        $banco = abrirBancoMarca();
         //declarando as variáveis usadas na inserção dos dados
         $nomeMarca = $_POST["nomeMarca"];
         //a consulta sql
@@ -35,11 +35,11 @@
         $banco->query($sql);
         //fechando a conexao com o banco
         $banco->close();
-        voltarIndex();
+        goToConsultaMarca();
     }
     function selectTodos(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoMarca();
         //a consulta sql
         $sql = "SELECT * FROM Marcas ORDER BY nomeMarca";
         //executando a consulta
@@ -66,7 +66,7 @@
     //funcao que mostra as marcas já preenchido para a alteração
     function selectIdMarca($idMarca){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoMarca();
         //a consulta sql
         $sql = "SELECT * FROM Marcas WHERE idMarca ='$idMarca'";
         $resultado = $banco->query($sql);
@@ -78,7 +78,7 @@
     //funcao que altera uma única marca especifica
     function alterarMarca(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoMarca();
         
         //declarando as variáveis usadas no update
         $idMarca = $_POST["idMarca"];
@@ -87,17 +87,17 @@
         $sql = "UPDATE Marcas SET nomeMarca='$nomeMarca' WHERE idMarca='$idMarca'";
         $banco->query($sql);
         $banco->close();
-        voltarIndex();
+        goToConsultaMarca();
     }
     function excluirMarca(){
         
-        $banco = abrirBanco();
+        $banco = abrirBancoMarca();
         //variável id que vai ser usada na consulta
         $idMarca = $_POST["idMarca"]; 
         //delete da marca específica 
         $sql = "DELETE FROM Marcas WHERE idMarca='$idMarca'";
         $banco->query($sql);
         $banco->close();
-        voltarIndex();
+        goToConsultaMarca();
     }
 ?>

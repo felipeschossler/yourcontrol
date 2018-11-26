@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(empty($_SESSION)){
+        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
+    }
+?>
+
 <?php 
     include("setor-c.php");
     $grupoS = selectTodosSetores();
@@ -21,7 +28,7 @@
     <!--table-->
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
-            <form name="#" action="#" method="#">
+            <div class="form">
                 <table class="table">
                 <h3>Consultar - Setor</h3>
                     <thead class="thead-dark">
@@ -53,7 +60,7 @@
                         <?php } ?>
                     </tbody>
                 </table>
-            </form>
+            </div>
         </div>
     </div>
 

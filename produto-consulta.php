@@ -1,11 +1,18 @@
+<?php
+    session_start();
+    if(empty($_SESSION)){
+        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
+    }
+?>
+
 <?php 
     include("produto-c.php");
     //pega por post o componente codigo do formulario -F.
-    @$idProduto         = $_POST['idProduto'];
-    @$nomeProduto       = $_POST['nomeProduto'];
-    @$idModelo          = $_POST['idModelo'];  //FK
-    @$serialProduto     = $_POST['serialProduto'];
-    @$quantidadeProduto = $_POST['quantidadeProduto'];
+    @$idProduto          = $_POST['idProduto'];
+    @$nomeProduto        = $_POST['nomeProduto'];
+    @$idModelo           = $_POST['idModelo'];  //FK
+    @$serialProduto      = $_POST['serialProduto'];
+    @$dataEntradaProduto = $_POST['dataEntradaProduto'];
     
     $grupo = selectTodosProdutos();
     //var_dump($grupo);
@@ -27,16 +34,16 @@
     <!--table-->
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
-            <form name="#" action="#" method="#">
+            <div class="form">
                 <h3>Consultar - Produto</h3>
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th>ID Produto</th>
-                            <th>ID Modelo</th>
-                            <th>Nome Produto</th>
-                            <th>Serial Produto</th>
-                            <th>Quantidade Produto</th>
+                            <th>ID: </th>
+                            <th>Modelo: </th>
+                            <th>Nome: </th>
+                            <th>Serial: </th>
+                            <th>Data de Entrada: </th>
                             <th>Editar</th>
                             <th>Excluir</th>
                         </tr>
@@ -48,7 +55,7 @@
                                 <td><?=$Produtos["idModelo"]?></td>
                                 <td><?=$Produtos["nomeProduto"]?></td>
                                 <td><?=$Produtos["serialProduto"]?></td>
-                                <td><?=$Produtos["quantidadeProduto"]?></td>
+                                <td><?=$Produtos["dataEntradaProduto"]?></td>
                                 <td>
                                     <form nome="alterar" action="produto-a.php" method="POST">
                                         <input type="hidden" name="idProduto" value=<?=$Produtos["idProduto"]?> />
@@ -65,7 +72,7 @@
                         <?php } ?>
                     </tbody>
                 </table>
-            </form>
+            </div>
         </div>
     </div>
 

@@ -1,6 +1,13 @@
+<?php
+    session_start();
+    if(empty($_SESSION)){
+        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
+    }
+?>
+
 <?php 
     include("setor-c.php"); 
-    $setor = selectIdSetor($_POST["idSetor"]);
+    $setores = selectIdSetor($_POST["idSetor"]);
 ?>
 <html lang="pt-BR">
 <head>
@@ -21,7 +28,8 @@
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <form name="dadosSetor" action="setor-c.php" method="POST">
-                <table border="1">
+                <h3>Alterar - Setor</h3>
+                <table class="table">
                     <tbody>
                         <tr>
                             <td>Código Setor:</td>
@@ -29,7 +37,7 @@
                         </tr>   
                         <tr>
                             <td>Nome:</td>
-                            <td><input type="text" name="nomeSetor" value="<?=$setores["nomeSetor"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeSetor" value="<?=$setores["nomeSetor"]?>" /></td>
                         </tr>
                         <tr>
                             <td>

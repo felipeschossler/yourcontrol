@@ -1,13 +1,20 @@
+<?php
+    session_start();
+    if(empty($_SESSION)){
+        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
+    }
+?>
+
 <?php 
     include("funcionario-c.php");
     //pega por post o componente codigo do formulario -F.
     @$idFuncionario     = $_POST['idFuncionario'];
-    @$nomeFuncionario   = $_POST['nomeFuncionario'];
     @$idSetor           = $_POST['idSetor'];  //FK
     @$idFuncao          = $_POST['idFuncao'];  //FK
+    @$nomeFuncionario   = $_POST['nomeFuncionario'];
     @$cpfFuncionario    = $_POST['cpfFuncionario'];
     
-    $grupoF = selectTodosFuncionarios();
+    $grupoE = selectTodosFuncionarios();
     //var_dump($grupo);
 ?>
 <html lang="pt-BR">
@@ -27,7 +34,7 @@
         <!--table-->
         <div class="container h-100">
             <div class="row h-100 justify-content-center align-items-center">
-                <form name="#" action="#" method="#">
+                <div class="form">
                     <h3>Consulta de Funcionário</h3>
                     <table class="table">
                         <thead class="thead-dark">
@@ -42,7 +49,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($grupoF as $funcionarios) { ?>
+                            <?php foreach ($grupoE as $funcionarios) { ?>
                                 <tr>
                                     <td><?=$funcionarios["idFuncionario"]?></td>
                                     <td><?=$funcionarios["idSetor"]?></td>
@@ -65,7 +72,7 @@
                             <?php } ?>
                         </tbody>
                     </table>
-                </form>
+                </div>
             </div>
         </div>
 

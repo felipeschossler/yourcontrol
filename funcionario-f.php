@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(empty($_SESSION)){
+        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
+    }
+?>
+
 <?php 
     //Funcao
     include("funcao-c.php");
@@ -27,7 +34,7 @@
             <div class="row h-100 justify-content-center align-items-center">
                 <form name="Funcionario" action="funcionario-c.php" method="POST">
                     <h3>Cadastro - Funcionário</h3>
-                    <table border="1">
+                    <table class="table">
                         <tbody>
                             <tr>
                                 <td>Código Funcionário</td>
@@ -57,11 +64,11 @@
                             </tr>
                             <tr>
                                 <td>Nome Funcionario:</td>
-                                <td><input type="text" name="nomeFuncionario" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                                <td><input type="text" name="nomeFuncionario" value="" /></td>
                             </tr>
                             <tr>
                                 <td>CPF:</td>
-                                <td><input type="text" name="cpfFuncionario" value="" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                                <td><input type="text" name="cpfFuncionario" value="" /></td>
                             </tr>
                             <tr>
                                 <td><input type="submit" name="acao" value="Enviar" onclick="alert('Cadastro efetuado com sucesso.');"/></td>

@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(empty($_SESSION)){
+        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
+    }
+?>
+
 <?php 
     include("produto-c.php"); 
     $Produtos = selectIdProduto($_POST["idProduto"]);
@@ -5,7 +12,7 @@
     //Modelo
     include("modelo-c.php");
     $Modelos = selectIdModelo($_POST["idModelo"]);
-    $grupo = selectTodos();
+    $grupoModelo = selectTodosModelos();
 ?>
 <html lang="pt-BR">
 <head>
@@ -26,7 +33,8 @@
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
             <form name="dadosProduto" action="produto-c.php" method="POST">
-                <table border="1">
+                <h3>Alterar - Produto</h3>
+                <table class="table">
                     <tbody>
                         <tr>
                             <td>Código Produto</td>
@@ -37,7 +45,7 @@
                             <td>
                                 <select name="idModelo">
                                     <?php
-                                        foreach ($grupo as $Modelos)
+                                        foreach ($grupoModelo as $Modelos)
                                         echo '<option name=" '.$Modelos['idModelo'].' " value=" ' . $Modelos['idModelo'] . '"> ' . $Modelos['nomeModelo'] . ' </option>';
                                     ?>
                                 </select> 
@@ -45,20 +53,20 @@
                         </tr>
                         <tr>
                             <td>Nome Produto</td>
-                            <td><input type="text" name="nomeProduto" value="<?=$Produtos["nomeProduto"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeProduto" value="<?=$Produtos["nomeProduto"]?>" /></td>
                         </tr>
                         <tr>
                             <td>Serial Produto</td>
-                            <td><input type="text" name="serialProduto" value="<?=$Produtos["serialProduto"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="serialProduto" value="<?=$Produtos["serialProduto"]?>" /></td>
                         </tr>
                         <tr>
-                            <td>Quantidade Produto</td>
-                            <td><input type="text" name="quantidadeProduto" value="<?=$Produtos["quantidadeProduto"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td>Data de Entrada</td>
+                            <td><input type="text" name="dataEntradaProduto" value="<?=$Produtos["dataEntradaProduto"]?>" /></td>
                         </tr>
                         <tr>
                             <td>
                                 <input type="hidden" name="acao" value="Alterar" />
-                                <input type="hidden" name="idProduto" value="<?=$Produtos["idProduto"]?>" onkeyup="this.value = this.value.toUpperCase();"/>
+                                <input type="hidden" name="idProduto" value="<?=$Produtos["idProduto"]?>" />
                             </td>
                             <td><input type="submit" name="enviar" value="Alterar" onclick="alert('Cadastro alterado com sucesso.');"/></td>
                         </tr>

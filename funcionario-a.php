@@ -1,16 +1,23 @@
+<?php
+    session_start();
+    if(empty($_SESSION)){
+        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
+    }
+?>
+
 <?php 
     include("funcionario-c.php"); 
     $funcionarios = selectIdFuncionario($_POST["idFuncionario"]);
 
+    //Setor
+    include("setor-c.php");
+    //$setores = selectIdSetor($_POST["idSetor"]);
+    $grupoS = selectTodosSetores();
+
     //Funcao
     include("funcao-c.php");
-    $funcoes = selectIdFuncao($_POST["idFuncao"]);
-    $grupo = selectTodos();
-
-     //Setor
-     include("setor-c.php");
-     $setores = selectIdSetor($_POST["idSetor"]);
-     $grupo = selectTodos();
+    //$funcoes = selectIdFuncao($_POST["idFuncao"]);
+    $grupoF = selectTodasFuncoes();
 ?>
 <html lang="pt-BR">
 <head>
@@ -30,8 +37,9 @@
     <!--form-->
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
-            <form name="dadosProduto" action="produto-c.php" method="POST">
-                <table border="1">
+            <form name="dadosFuncionario" action="funcionario-c.php" method="POST">
+                <h3>Alterar - Funcionário</h3>
+                <table class="table">
                     <tbody>
                         <tr>
                             <td>Código Funcionario</td>
@@ -42,7 +50,7 @@
                             <td>
                                 <select name="idSetor">
                                     <?php
-                                        foreach ($grupo as $setores)
+                                        foreach ($grupoS as $setores)
                                         echo '<option name=" '.$setores['idSetor'].' " value=" ' . $setores['idSetor'] . '"> ' . $setores['nomeSetor'] . ' </option>';
                                     ?>
                                 </select> 
@@ -53,7 +61,7 @@
                             <td>
                                 <select name="idFuncao">
                                     <?php
-                                        foreach ($grupo as $funcoes)
+                                        foreach ($grupoF as $funcoes)
                                         echo '<option name=" '.$funcoes['idFuncao'].' " value=" ' . $funcoes['idFuncao'] . '"> ' . $funcoes['nomeFuncao'] . ' </option>';
                                     ?>
                                 </select> 
@@ -61,16 +69,16 @@
                         </tr>
                         <tr>
                             <td>Nome</td>
-                            <td><input type="text" name="nomeFuncionario" value="<?=$funcionarios["nomeFuncionario"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="nomeFuncionario" value="<?=$funcionarios["nomeFuncionario"]?>" /></td>
                         </tr>
                         <tr>
                             <td>CPF</td>
-                            <td><input type="text" name="cpfFuncionario" value="<?=$funcionarios["cpfFuncionario"]?>" onkeyup="this.value = this.value.toUpperCase();"/></td>
+                            <td><input type="text" name="cpfFuncionario" value="<?=$funcionarios["cpfFuncionario"]?>" /></td>
                         </tr>
                         <tr>
                             <td>
                                 <input type="hidden" name="acao" value="Alterar" />
-                                <input type="hidden" name="idFuncionario" value="<?=$funcionarios["idFuncionario"]?>" onkeyup="this.value = this.value.toUpperCase();"/>
+                                <input type="hidden" name="idFuncionario" value="<?=$funcionarios["idFuncionario"]?>" />
                             </td>
                             <td><input type="submit" name="enviar" value="Alterar" onclick="alert('Cadastro alterado com sucesso.');"/></td>
                         </tr>

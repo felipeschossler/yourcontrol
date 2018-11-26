@@ -1,16 +1,25 @@
+<?php
+    session_start();
+    if(empty($_SESSION)){
+        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
+    }
+?>
+
 <?php 
     include("modelo-c.php");
     //pega por post o componente codigo do formulario -F.
-    @$idModelo 	          = $_POST['idModelo'];
-    @$nomeModelo         = $_POST['nomeModelo'];
-    @$nomeMarca         = $_POST['nomeMarca'];  //FK
+    @$idModelo 	 = $_POST['idModelo'];
+    @$nomeModelo = $_POST['nomeModelo'];
+    @$nomeMarca  = $_POST['nomeMarca'];  //FK
     
-    $grupo = selectTodos();
+    $grupo = selectTodosModelos();
     //var_dump($grupo);
+    
+
 ?>
 <html lang="pt-BR">
 <head>
-    <title>Consultar - Modelo</title>
+    <title>Consulta - Modelo</title>
     <?php
         include("tmpl/head.php");
     ?>
@@ -25,14 +34,14 @@
     <!--table-->
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
-            <form name="#" action="#" method="#">
-                <h3>Consultar - Modelo</h3>
+        <div class="form">  
+            <h3>Consulta de Modelo</h3>
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th>ID Modelo</th>
-                            <th>ID Marca</th>
-                            <th>Nome Modelo</th>
+                            <th>ID</th>
+                            <th>Marca</th>
+                            <th>Nome</th>
                             <th>Editar</th>
                             <th>Excluir</th>
                         </tr>
@@ -62,7 +71,7 @@
 
                     </tbody>
                 </table>
-            </form>
+            </div>
         </div>
     </div>
 

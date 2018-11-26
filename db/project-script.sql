@@ -2,6 +2,14 @@
 
 CREATE DATABASE banco CHARACTER SET utf8 COLLATE utf8_general_ci;
 
+CREATE TABLE Usuarios
+(
+    idUsuario INT NOT NULL AUTO_INCREMENT ,
+    nomeUsuario VARCHAR(40) NOT NULL ,
+    senhaUsuario VARCHAR(40) NOT NULL ,
+    PRIMARY KEY (idUsuario)
+);
+
 /*tabela Marcas*/
 
 CREATE TABLE Marcas 
@@ -30,8 +38,8 @@ CREATE TABLE Produtos
     idProduto INT NOT NULL AUTO_INCREMENT , 
     nomeProduto VARCHAR(30) NOT NULL ,
     serialProduto VARCHAR(50) NOT NULL ,
-    quantidadeProduto INT(5) NOT NULL ,
-    dataEntradaProduto DATETIME ,
+    dataEntradaProduto DATE NOT NULL,
+    statusProduto BOOLEAN NOT NULL ,
     PRIMARY KEY (idProduto) , 
     CONSTRAINT fk_ModeloProduto FOREIGN KEY (idModelo) REFERENCES Modelos (idModelo) 
 );
@@ -44,6 +52,9 @@ CREATE TABLE Funcoes
     nomeFuncao VARCHAR(40) NOT NULL , 
     PRIMARY KEY (idFuncao)
 );
+
+/*tabela itens*/
+
 
 /*tabela Setores*/
 
@@ -66,4 +77,28 @@ CREATE TABLE Funcionarios
     PRIMARY KEY (idFuncionario) ,
     CONSTRAINT fk_FuncaoFuncionario FOREIGN KEY (idFuncao) REFERENCES Funcoes (idFuncao) ,
     CONSTRAINT fk_SetorFuncionario FOREIGN KEY (idSetor) REFERENCES Setores (idSetor)
+);
+
+/*tabela Movimentações*/
+
+CREATE TABLE Movimentacoes
+( 
+    idMovimentacao INT NOT NULL AUTO_INCREMENT ,
+    dataSaidaMovimentacao DATE NOT NULL ,
+    idFuncionario INT NOT NULL ,
+    idProduto INT NOT NULL ,
+    statusMovimentacao BOOLEAN NOT NULL ,
+    PRIMARY KEY (idMovimentacao) ,
+    CONSTRAINT fk_FuncionarioMovimentacao FOREIGN KEY (idFuncionario) REFERENCES Funcionarios (idFuncionario) ,
+    CONSTRAINT fk_ProdutoMovimentacao FOREIGN KEY (idProduto) REFERENCES Produtos (idProduto)
+);
+
+/*tabela Devolucao*/
+CREATE TABLE MovimentacoesDev
+( 
+    idMovimentacaoDev INT NOT NULL AUTO_INCREMENT ,
+    dataEntradaMovimentacao DATE NOT NULL ,
+    idMovimentacao INT NOT NULL ,
+    PRIMARY KEY (idMovimentacaoDev) ,
+    CONSTRAINT fk_MovimentacaoDevolucao FOREIGN KEY (idMovimentacao) REFERENCES Movimentacoes (idMovimentacao)
 );
