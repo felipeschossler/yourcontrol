@@ -1,10 +1,3 @@
-<?php
-    session_start();
-    if(empty($_SESSION)){
-        echo "<script language='javascript' type='text/javascript'>alert('Faça o login no sistema.');window.location.href='login.php';</script>";
-    }
-?>
-
 <?php 
     include("produto-c.php");
     //pega por post o componente codigo do formulario -F.
@@ -44,6 +37,7 @@
                             <th>Nome: </th>
                             <th>Serial: </th>
                             <th>Data de Entrada: </th>
+                            <th>Status</th>
                             <th>Editar</th>
                             <th>Excluir</th>
                         </tr>
@@ -56,6 +50,7 @@
                                 <td><?=$Produtos["nomeProduto"]?></td>
                                 <td><?=$Produtos["serialProduto"]?></td>
                                 <td><?=$Produtos["dataEntradaProduto"]?></td>
+                                <td><?=$Produtos["statusProduto"]?></td>
                                 <td>
                                     <form nome="alterar" action="produto-a.php" method="POST">
                                         <input type="hidden" name="idProduto" value=<?=$Produtos["idProduto"]?> />

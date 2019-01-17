@@ -102,3 +102,16 @@ CREATE TABLE MovimentacoesDev
     PRIMARY KEY (idMovimentacaoDev) ,
     CONSTRAINT fk_MovimentacaoDevolucao FOREIGN KEY (idMovimentacao) REFERENCES Movimentacoes (idMovimentacao)
 );
+
+/*tabela Relatorios*/
+CREATE TABLE RelatoriosMov
+( 
+    idRelatorioMov INT NOT NULL AUTO_INCREMENT ,
+    idMovimentacaoRel INT ,
+    idMovimentacaoDevRel INT ,
+    idProdutoRel INT ,
+    idFuncionarioRel INT ,
+    idMarcaRel INT ,
+    idModeloRel INT ,
+    PRIMARY KEY (idRelatorioMov)
+);

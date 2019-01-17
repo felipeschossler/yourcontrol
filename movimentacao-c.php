@@ -28,15 +28,36 @@
         $statusMovimentacao    = $_POST["statusMovimentacao"];
 
         //a consulta sql
-        $sql = "INSERT INTO Movimentacoes(dataSaidaMovimentacao, idFuncionario, idProduto, statusMovimentacao) VALUES ('$dataSaidaMovimentacao', '$idFuncionario', '$idProduto', '1')";
+        $sql = "INSERT INTO Movimentacoes(idMovimentacao, dataSaidaMovimentacao, idFuncionario, idProduto, statusMovimentacao) VALUES (NULL, '$dataSaidaMovimentacao', '$idFuncionario', '$idProduto', '1')";
         $update = "UPDATE Produtos SET statusProduto='1' WHERE (idProduto='$idProduto')";
-                
+      
+        $relatorio = "INSERT INTO RelatoriosMov(idRelatorioMov, idMovimentacaoRel, idMovimentacaoDevRel, idProdutoRel, idFuncionarioRel, idMarcaRel, idModeloRel) VALUES (NULL, '', '', '$idProduto', '$idFuncionario', '', '')";
+
+        $marca = "SELECT idMarca FROM Modelos WHERE (SELECT idModelo FROM Produtos WHERE idProduto = '$idProduto')";
+        $modelo = "SELECT idModelo FROM Produtos WHERE idProduto = '$idProduto'";
+        $movimentacao = "SELECT idMovimentacao FROM Movimentacoes WHERE idProduto = '$idProduto'";
+        
+        $set = "SELECT idMovimentacao FROM Movimentacoes WHERE idProduto = '$idProduto'
+                UPDATE RelatoriosMov SET idMovimentacaoRel='$idMovimentacao' 
+
+                WHERE idRelatorioMov= '$idRelatorioMov'";
         //executando a inclusão
         $banco->query($sql);
         $banco->query($update);
+        $banco->query($relatorio);
+        $banco->query($marca);
+        $banco->query($modelo);
+        $banco->query($movimentacao);
+        $banco->query($set);
+        echo "$sql";
+        echo "$update";
+        echo "$relatorio";
+        echo "$marca";
+        echo "$modelo";
+        echo "$set";
         //fechando a conexao com o banco
         $banco->close();
-        goToConsulta();
+        //goToConsulta();
     }
 
     function selectTodosMovs(){
